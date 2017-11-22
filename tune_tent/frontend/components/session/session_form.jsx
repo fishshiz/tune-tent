@@ -11,6 +11,24 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.loggedIn) {
+      this.props.history.push('/');
+    }
+  }
+
+  renderErrors() {
+    return (
+      <ul>
+      {this.props.errors.map((error, idx) => (
+        <li key={`error-${idx}`}>
+          {error}
+        </li>
+      ))}
+    </ul>
+    );
+  }
+
   handleInput(type) {
     return (e) => {
       this.setState({ [type]: e.target.value });
@@ -26,6 +44,7 @@ class SessionForm extends React.Component {
   render() {
     return (
       <div className="session-form">
+        {this.renderErrors()}
         <h2>{this.props.formType}</h2>
         <form>
           <label>Username
@@ -47,4 +66,4 @@ class SessionForm extends React.Component {
   }
 }
 
-export default SessionForm;
+export default withRouter(SessionForm);
