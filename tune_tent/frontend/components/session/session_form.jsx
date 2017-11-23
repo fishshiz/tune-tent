@@ -2,17 +2,6 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import Modal from 'react-modal';
 
-const customStyles = {
-  content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
-  }
-};
-
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
@@ -74,7 +63,7 @@ class SessionForm extends React.Component {
 
   navLink() {
     const Button = withRouter(({ history }) => (
-      <button
+      <button className="session-button"
         type='button'
         onClick={() =>  history.push(`/${this.props.altButton}`) }
       >
@@ -91,28 +80,44 @@ class SessionForm extends React.Component {
       <div className="session-form">
         <Modal
           isOpen={this.state.modalIsOpen}
-          style={customStyles}
+          className='modal'
+          overlayClassName='modal-overlay'
           >
-        <h2>{this.capitalize(this.props.formType)}</h2>
+        <h2 className="modal-head">{this.capitalize(this.props.formType)}</h2>
         {this.renderErrors()}
-        <form>
-          <label>Username
-          <input
-            type="text"
-            value={this.state.username}
-            onChange={this.handleInput('username')} />
-          </label>
+        <form className="session-form">
+          <div className="session-input-cont">
+            <label>Username
+              <br />
+            <input
+              type="text"
+              value={this.state.username}
+              className="session-input"
+              onChange={this.handleInput('username')} />
+            </label>
+            <br />
+            <label>Password
+              <br />
+            <input
+              type="password"
+              value={this.state.password}
+              className="session-input"
+              onChange={this.handleInput('password')} />
+            </label>
+          </div>
           <br />
-          <label>Password
-          <input
-            type="password"
-            value={this.state.password}
-            onChange={this.handleInput('password')} />
-          </label>
-          <br />
-          <button onClick={this.handleSubmit}>{this.capitalize(this.props.formType)}</button>
-          <br />
-          {this.navLink()}
+          <div className="session-button-cont">
+            <button className="session-button"
+              onClick={this.handleSubmit}>{this.capitalize(this.props.formType)}
+             </button>
+            <br />
+            {this.navLink()}
+            <br />
+            <button className="session-button">
+              Demo Session
+            </button>
+            <br />
+          </div>
         </form>
         </Modal>
       </div>

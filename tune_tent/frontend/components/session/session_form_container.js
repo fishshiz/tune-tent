@@ -7,7 +7,7 @@ const mapStateToProps = (state, ownProps) => {
   let altButton = (formType === 'login') ? 'signup' : 'login';
   return {
     loggedIn: Boolean(state.session.currentUser),
-    errors: state.errors.session,
+    errors: state.errors,
     formType,
     altButton
   };
