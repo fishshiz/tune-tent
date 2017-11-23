@@ -22,7 +22,6 @@ class SessionForm extends React.Component {
       modalIsOpen: true
     };
     this.openModal = this.openModal.bind(this);
-    this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -41,10 +40,6 @@ class SessionForm extends React.Component {
 
   closeModal() {
     this.setState({ modalIsOpen: false });
-  }
-
-  afterOpenModal() {
-    this.subtitle.style.color = '#f00';
   }
 
   renderErrors() {
@@ -78,11 +73,17 @@ class SessionForm extends React.Component {
   }
 
   navLink() {
-    if (this.props.formType === 'login') {
-      return <Link to="/signup">sign up instead</Link>;
-    } else {
-      return <Link to="/login">log in instead</Link>;
-    }
+    const Button = withRouter(({ history }) => (
+      <button
+        type='button'
+        onClick={() =>  history.push(`/${this.props.altButton}`) }
+      >
+        {this.capitalize(this.props.altButton)}
+      </button>
+    ));
+    return (
+      <Button />
+    );
   }
 
   render() {
@@ -92,8 +93,8 @@ class SessionForm extends React.Component {
           isOpen={this.state.modalIsOpen}
           style={customStyles}
           >
-        {this.renderErrors()}
         <h2>{this.capitalize(this.props.formType)}</h2>
+        {this.renderErrors()}
         <form>
           <label>Username
           <input
@@ -109,7 +110,7 @@ class SessionForm extends React.Component {
             onChange={this.handleInput('password')} />
           </label>
           <br />
-          <button onClick={this.handleSubmit}>{this.props.formType}</button>
+          <button onClick={this.handleSubmit}>{this.capitalize(this.props.formType)}</button>
           <br />
           {this.navLink()}
         </form>

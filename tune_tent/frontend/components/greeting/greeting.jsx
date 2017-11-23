@@ -1,12 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
-const loggedOut = () => (
-  <nav className="login-signup">
-    <Link to="/login">Login</Link>
-    <Link to="/signup">Signup</Link>
-  </nav>
-);
 
 const loggedIn = (currentUser, logout) => (
   <hgroup className="header-group">
@@ -16,7 +8,7 @@ const loggedIn = (currentUser, logout) => (
 );
 
 const Greeting =({ currentUser, logout }) => (
-  currentUser ? loggedIn(currentUser, logout) : loggedOut()
+  currentUser ? loggedIn(currentUser, logout) : null
 );
 
 export default Greeting;

@@ -3,10 +3,13 @@ import { signup, login } from '../../actions/session_actions';
 import SessionForm from './session_form';
 
 const mapStateToProps = (state, ownProps) => {
+  let formType = ownProps.location.pathname.slice(1);
+  let altButton = (formType === 'login') ? 'signup' : 'login';
   return {
     loggedIn: Boolean(state.session.currentUser),
     errors: state.errors.session,
-    formType: ownProps.location.pathname.slice(1)
+    formType,
+    altButton
   };
 };
 
