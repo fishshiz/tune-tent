@@ -32,6 +32,10 @@ const receiveCurrentUser = user => ({
   user
 });
 
+export const clearErrors = () => ({
+  type: CLEAR_ERRORS
+});
+
 const receiveErrors = errors => ({
   type: RECEIVE_ERRORS,
   errors
@@ -39,8 +43,4 @@ const receiveErrors = errors => ({
 
 const logoutCurrentUser = () => ({
   type: LOGOUT_CURRENT_USER
-});
-
-const clearErrors = () => ({
-  type: CLEAR_ERRORS
 });

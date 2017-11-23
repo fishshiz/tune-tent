@@ -71,21 +71,17 @@ class SessionForm extends React.Component {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
-  clearErrors() {
-    this.setState({
-      errors: []
-    });
-  }
-
-  componentWillUnmount() {
+  handleClick(history) {
+    // debugger;
+    this.props.clearErrors();
+    history.push(`/${this.props.altButton}`);
   }
 
   navLink() {
     const Button = withRouter(({ history }) => (
       <button className="session-button"
         type='button'
-        onClick={() =>  history.push(`/${this.props.altButton}`)}
-      >
+        onClick={() => this.handleClick.bind(this)(history)}>
         {this.capitalize(this.props.altButton)}
       </button>
     ));
