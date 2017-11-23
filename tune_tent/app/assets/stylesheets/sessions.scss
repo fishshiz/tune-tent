@@ -15,14 +15,14 @@
 
 ul {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 36px;
 }
 
 li {
   font-family: sans-serif;
-  color: rgb(94, 176, 166);
-  position: absolute;
-  z-index: 1;
+  color: red;
 }
 
 .modal-overlay {
@@ -39,7 +39,7 @@ li {
   top: 50%;
   left: 50%;
   width: 400px;
-  height: 500px;
+  height: 536px;
   margin-right: -50%;
   transform: translate(-50%, -50%);
   background-color: white;

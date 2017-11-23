@@ -13,6 +13,7 @@ class SessionForm extends React.Component {
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -57,15 +58,33 @@ class SessionForm extends React.Component {
     this.props.processForm(user);
   }
 
+  demoLogin(e) {
+    e.preventDefault();
+    const demoUser = {
+      username: 'demo',
+      password: 'password'
+    };
+    this.props.login(demoUser);
+  }
+
   capitalize(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
+  clearErrors() {
+    this.setState({
+      errors: []
+    });
+  }
+
+  componentWillUnmount() {
   }
 
   navLink() {
     const Button = withRouter(({ history }) => (
       <button className="session-button"
         type='button'
-        onClick={() =>  history.push(`/${this.props.altButton}`) }
+        onClick={() =>  history.push(`/${this.props.altButton}`)}
       >
         {this.capitalize(this.props.altButton)}
       </button>
@@ -113,7 +132,7 @@ class SessionForm extends React.Component {
             <br />
             {this.navLink()}
             <br />
-            <button className="session-button">
+            <button className="session-button" onClick={this.demoLogin}>
               Demo Session
             </button>
             <br />
