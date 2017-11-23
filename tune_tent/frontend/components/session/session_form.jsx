@@ -88,7 +88,7 @@ class SessionForm extends React.Component {
         <form className="session-form">
           <div className="session-input-cont">
             <label>Username
-              <br />
+              <br className="break" />
             <input
               type="text"
               value={this.state.username}
@@ -97,7 +97,7 @@ class SessionForm extends React.Component {
             </label>
             <br />
             <label>Password
-              <br />
+              <br className="break" />
             <input
               type="password"
               value={this.state.password}

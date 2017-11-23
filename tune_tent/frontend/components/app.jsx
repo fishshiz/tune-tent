@@ -1,8 +1,9 @@
 import React from 'react';
 import GreetingContainer from './greeting/greeting_container';
 import SessionFormContainer from './session/session_form_container';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import NavBarContainer from './nav_bar/nav_bar_container';
+import { ProtectedRoute, AuthRoute } from '../util/route_util.jsx';
 
 const App = () => (
   <div>
@@ -10,8 +11,11 @@ const App = () => (
       <h1>tune tent.</h1>
       <GreetingContainer />
     </header>
-      <Route path="/signup" component={SessionFormContainer} />
-      <Route path="/login" component={SessionFormContainer} />
+    <Switch>
+      <AuthRoute path="/signup" component={SessionFormContainer} />
+      <AuthRoute path="/login" component={SessionFormContainer} />
+      <ProtectedRoute path="/" component={GreetingContainer} />
+    </Switch>
   </div>
 
 );
