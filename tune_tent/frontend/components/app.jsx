@@ -9,12 +9,15 @@ const App = () => (
   <div>
     <header>
       <h1>tune tent.</h1>
-      <GreetingContainer />
+      <h1>Discover</h1>
+      <h1>Upload</h1>
+      <input type="text" />
+      <h1>Your Site</h1>
+      <ProtectedRoute path="/" component={NavBarContainer} />
     </header>
     <Switch>
       <AuthRoute path="/signup" component={SessionFormContainer} />
       <AuthRoute path="/login" component={SessionFormContainer} />
-      <ProtectedRoute path="/" component={GreetingContainer} />
     </Switch>
   </div>
 

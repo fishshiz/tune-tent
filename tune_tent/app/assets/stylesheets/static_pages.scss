@@ -2,7 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   background-color: rgb(235, 113, 183);
   color: white;
   height: 10%;
+}
+
+header input {
+  background-color: white;
+  color: rgb(235, 113, 183);
+  height: 80%;
+  border-radius: 4px;
+}
+
+header h1 {
+  font-family: sans-serif;
+  font-size: 24px;
 }

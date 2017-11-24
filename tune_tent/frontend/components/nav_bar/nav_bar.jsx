@@ -8,18 +8,12 @@ export default ({ currentUser, logout }) => {
       <button onClick={logout}>Logout</button>
     </div>
   ) : (
-    <div>
-      <Link to="/signup">Signup</Link>
-      <Link to="/login">Login</Link>
-    </div>
+    <div></div>
   );
 
   return (
-    <header>
-      <h1>TUNETENT</h1>
       <div>
         {display}
       </div>
-    </header>
   );
 };
