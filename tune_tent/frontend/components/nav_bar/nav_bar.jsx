@@ -2,13 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default ({ currentUser, logout }) => {
-  const display = currentUser ? (
-    <div>
-      <p>Hello, {currentUser.username}</p>
-      <button onClick={logout}>Logout</button>
-    </div>
-  ) : (
-    <div></div>
+  const display =  (
+    <header>
+      <Link to="/">tune tent.</Link>
+      <Link to="/albums/new">upload</Link>
+        <div className="search">
+          <i className="fa fa-search" aria-hidden="true"></i>
+          <input type="text" placeholder="search artists" />
+        </div>
+      <Link to="/users/:userId">your site</Link>
+      <button onClick={logout}>logout</button>
+    </header>
   );
 
   return (

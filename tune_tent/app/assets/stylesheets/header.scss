@@ -1,0 +1,49 @@
+.search i {
+  z-index: 1;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  color: rgb(176, 84, 137);
+}
+
+header a:hover {
+  color: black;
+}
+
+header button:hover {
+  color: black;
+}
+
+::-webkit-input-placeholder {
+  color: pink;
+  font-family: sans-serif;
+}
+
+.search {
+  position: relative;
+}
+
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(235, 113, 183);
+  color: white;
+  height: 100px;
+  font-size: 22px;
+  font-family: sans-serif;
+}
+
+.search input {
+  background-color: white;
+  color: rgb(235, 113, 183);
+  height: 50%;
+  border-radius: 8px;
+  padding: 12px 45px;
+  margin: 3px;
+  box-sizing: border-box;
+}
+
+.search input:focus {
+  border: 3px solid rgb(241, 192, 232);
+}
