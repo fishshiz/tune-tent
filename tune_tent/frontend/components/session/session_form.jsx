@@ -72,21 +72,24 @@ class SessionForm extends React.Component {
   }
 
   handleClick(history) {
-    // debugger;
     this.props.clearErrors();
-    history.push(`/${this.props.altButton}`);
   }
 
   navLink() {
-    const Button = withRouter(({ history }) => (
-      <button className="session-button"
-        type='button'
-        onClick={() => this.handleClick.bind(this)(history)}>
-        {this.capitalize(this.props.altButton)}
-      </button>
+    const altText = this.props.altButton === 'login' ? 'Already have an account? Login '
+     : 'Don’t have an account yet? There’s space for you in the tent. Set up your account '
+    const Test = withRouter(({ history }) => (
+      <div>
+        <span className="auth-sentence">{altText}
+        <Link to={`/${this.props.altButton}`} onClick={() => this.handleClick.bind(this)(history)} className="auth-link">
+          here
+        </Link>
+        .
+      </span>
+      </div>
     ));
     return (
-      <Button />
+      <Test />
     );
   }
 
@@ -125,12 +128,14 @@ class SessionForm extends React.Component {
             <button className="session-button"
               onClick={this.handleSubmit}>{this.capitalize(this.props.formType)}
              </button>
-            <br />
+            </div>
+            <div className="auth-alt-options">
             {this.navLink()}
-            <br />
-            <button className="session-button" onClick={this.demoLogin}>
-              Demo Session
-            </button>
+
+            <span className="auth-sentence">
+              Not sure yet? Check out a <Link className="auth-link" to={'/'} onClick={this.demoLogin}>
+              demo session</Link>.
+            </span>
             <br />
           </div>
         </form>
