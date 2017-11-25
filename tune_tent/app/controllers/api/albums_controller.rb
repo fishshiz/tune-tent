@@ -22,7 +22,7 @@ class Api::AlbumsController < ApplicationController
   end
 
   private
-  
+
   def album_params
     params.require(:album).permit(:title, :album_img_url, :user_id)
   end

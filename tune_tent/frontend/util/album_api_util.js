@@ -6,10 +6,10 @@ export const fetchAlbum = id => (
   })
 );
 
-export const createAlbum = data => (
+export const createAlbum = album => (
   $.ajax({
     url: 'api/albums',
     method: 'POST',
-    data
+    album
   })
 );
