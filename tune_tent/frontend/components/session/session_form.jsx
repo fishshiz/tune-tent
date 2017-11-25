@@ -14,6 +14,7 @@ class SessionForm extends React.Component {
     this.closeModal = this.closeModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.demoLogin = this.demoLogin.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -54,12 +55,14 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.handleClick(history);
     const user = this.state;
     this.props.processForm(user);
   }
 
   demoLogin(e) {
     e.preventDefault();
+    this.handleClick(history);
     const demoUser = {
       username: 'demo',
       password: 'password'
@@ -76,12 +79,15 @@ class SessionForm extends React.Component {
   }
 
   navLink() {
-    const altText = this.props.altButton === 'login' ? 'Already have an account? Login '
-     : 'Don’t have an account yet? There’s space for you in the tent. Set up your account '
+    const altText = this.props.altButton === 'login' ?
+    'Already have an account? Login '
+     : 'Don’t have an account yet? There’s space for you in the tent. Set up your account ';
     const Test = withRouter(({ history }) => (
       <div>
         <span className="auth-sentence">{altText}
-        <Link to={`/${this.props.altButton}`} onClick={() => this.handleClick.bind(this)(history)} className="auth-link">
+        <Link to={`/${this.props.altButton}`}
+          onClick={() => this.handleClick(history)}
+          className="auth-link">
           here
         </Link>
         .
@@ -106,7 +112,7 @@ class SessionForm extends React.Component {
         <form className="session-form">
           <div className="session-input-cont">
             <label>Username
-              <br className="break" />
+              <br />
             <input
               type="text"
               value={this.state.username}
@@ -115,7 +121,7 @@ class SessionForm extends React.Component {
             </label>
             <br />
             <label>Password
-              <br className="break" />
+              <br />
             <input
               type="password"
               value={this.state.password}
@@ -125,7 +131,8 @@ class SessionForm extends React.Component {
           </div>
           <br />
           <div className="session-button-cont">
-            <button className="session-button"
+            <button
+              className="session-button"
               onClick={this.handleSubmit}>{this.capitalize(this.props.formType)}
              </button>
             </div>
@@ -133,7 +140,10 @@ class SessionForm extends React.Component {
             {this.navLink()}
 
             <span className="auth-sentence">
-              Not sure yet? Check out a <Link className="auth-link" to={'/'} onClick={this.demoLogin}>
+              Not sure yet? Check out a <Link
+              className="auth-link"
+              to={'/'}
+              onClick={this.demoLogin}>
               demo session</Link>.
             </span>
             <br />
