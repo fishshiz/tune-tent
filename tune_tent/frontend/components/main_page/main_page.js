@@ -6,6 +6,7 @@ export default ({ currentUser, logout }) => {
 
   return (
       <div>
+        TuNeTeNt
       </div>
   );
 };

@@ -4,13 +4,14 @@ export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 
-export const login = user => dispatch => (
+export const login = user => dispatch =>
   SessionAPIUtil.login(user).
-  then(currentUser => (dispatch(receiveCurrentUser(currentUser))),
-  errors => (
+  then(currentUser => {
+    console.log(currentUser);
+    return (
+    dispatch(receiveCurrentUser(currentUser)));}, errors => (
     dispatch(receiveErrors(errors.responseJSON))
-  ))
-);
+  ));
 
 export const logout = () => dispatch => (
   SessionAPIUtil.logout().then(() => (
@@ -21,8 +22,8 @@ export const logout = () => dispatch => (
 
 export const signup = user => dispatch => (
   SessionAPIUtil.signup(user).
-  then(currentUser => (dispatch(receiveCurrentUser(currentUser))),
-  errors => (
+  then(currentUser => (
+  dispatch(receiveCurrentUser(currentUser))), errors => (
   dispatch(receiveErrors(errors.responseJSON)))
   )
 );

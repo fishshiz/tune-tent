@@ -55,9 +55,10 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.handleClick(history);
+
     const user = this.state;
     this.props.processForm(user);
+    this.handleClick(history);
   }
 
   demoLogin(e) {
