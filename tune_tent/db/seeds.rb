@@ -2,7 +2,7 @@ Album.delete_all
 
 Album.create!(
   title: 'The 404 Sessions',
-  album_img_url: 'edn',
+  album_img_url: 'https://f4.bcbits.com/img/a1096340222_16.jpg',
   user_id: 1
 )
 

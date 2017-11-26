@@ -6,6 +6,14 @@ export const fetchAlbum = id => (
   })
 );
 
+export const fetchAlbums = artistId => (
+  $.ajax({
+    url: 'api/albums',
+    method: 'GET',
+    artistId
+  })
+);
+
 export const createAlbum = album => (
   $.ajax({
     url: 'api/albums',

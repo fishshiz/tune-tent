@@ -6,10 +6,12 @@ import NavBarContainer from './nav_bar/nav_bar_container';
 import MainPageContainer from './main_page/main_page_container';
 import { ProtectedRoute, AuthRoute } from '../util/route_util.jsx';
 import UserPageContainer from './user_page/user_page_container';
+import EditButtonContainer from './user_page/edit_button_container';
 
 const App = () => (
   <div>
     <NavBarContainer />
+    <Route path="/artists/:artistId" component={EditButtonContainer} />
     <Switch>
       <AuthRoute path="/signup" component={SessionFormContainer} />
       <AuthRoute path="/login" component={SessionFormContainer} />

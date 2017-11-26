@@ -1,8 +1,8 @@
 .search i {
   z-index: 1;
   position: absolute;
-  top: 15px;
-  left: 15px;
+  top: 20px;
+  left: 20px;
   color: rgb(176, 84, 137);
 }
 
@@ -37,6 +37,7 @@ header {
 .search input {
   background-color: white;
   color: rgb(235, 113, 183);
+  border: 3px solid rgb(235, 113, 183);
   height: 50%;
   border-radius: 8px;
   padding: 12px 45px;
