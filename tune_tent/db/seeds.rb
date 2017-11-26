@@ -6,6 +6,30 @@ Album.create!(
   user_id: 1
 )
 
+Album.create!(
+  title: 'Come on, Feel the Illinoise',
+  album_img_url: 'https://www.besteveralbums.com/albumart/album_large_1394_4e76d58a18b28.jpg',
+  user_id: 38
+)
+
+Album.create!(
+  title: 'The Age of Adz',
+  album_img_url: 'http://f4.bcbits.com/img/a0897080833_2.jpg',
+  user_id: 38
+)
+
+Album.create!(
+  title: 'Michigan',
+  album_img_url: 'https://i.ytimg.com/vi/UsZTQjsqiXI/maxresdefault.jpg',
+  user_id: 38
+)
+
+Album.create!(
+  title: 'Carrie & Lowell',
+  album_img_url: 'https://media.pitchfork.com/photos/5929ac5c5e6ef959693218f8/1:1/w_600/dbfa1978.jpg',
+  user_id: 38
+)
+
 User.create!(
   username: 'Sufjan Stevens',
   password: 'password',

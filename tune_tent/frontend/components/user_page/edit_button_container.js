@@ -5,7 +5,6 @@ import EditButton from './edit_button';
 import { withRouter } from 'react-router';
 
 const mapStateToProps = (state, ownProps) => {
-  debugger;
   const artistId = parseInt(ownProps.match.params.artistId);
   return {
     currentUser: state.session.currentUser,

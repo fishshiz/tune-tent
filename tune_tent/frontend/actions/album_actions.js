@@ -25,4 +25,4 @@ const receiveAlbum = album => ({
 const receiveAlbums = albums => ({
   type: RECEIVE_ALBUMS,
   albums
-})
+});
