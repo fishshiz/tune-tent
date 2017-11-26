@@ -2,24 +2,22 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 class EditButton extends React.Component {
 
-  renderContent() {
+
+
+  render() {
     if(this.props.currentUser.id === this.props.artistId) {
       return (
-        <Link to={`/${this.props.artistId}/edit`}>Edit page</Link>
+        <div className="edit-button">
+          <Link  to={`${this.props.artistId}/edit`}><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
+          </Link>
+        </div>
       );
     } else {
       return (
         <div></div>
       );
     }
-  }
 
-  render() {
-    return (
-      <div>
-        {this.renderContent()}
-      </div>
-    );
   }
 }
 
