@@ -7,7 +7,6 @@ export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 export const login = user => dispatch =>
   SessionAPIUtil.login(user).
   then(currentUser => {
-    console.log(currentUser);
     return (
     dispatch(receiveCurrentUser(currentUser)));}, errors => (
     dispatch(receiveErrors(errors.responseJSON))

@@ -37,7 +37,9 @@ class userPage extends React.Component {
 
         <div className="photo-cont">
           <img src={this.props.artist.img_url} />
-          <p className="artist-bio">{this.props.artist.bio}</p>
+          <div className="artist-bio-cont">
+            <p className="artist-bio">{this.props.artist.bio}</p>
+          </div>
           <span className="social">
           <a href={this.props.artist.fb_link}>
           <i class="fa fa-facebook fa-3x" aria-hidden="true"></i></a>

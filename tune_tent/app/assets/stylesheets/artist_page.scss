@@ -29,11 +29,12 @@
   display: flex;
   justify-content: space-around;
   margin-top: 40px;
+  background-color: rgb(235, 113, 183);
 }
 
 .artist-bio {
   height: 50%;
-  margin-top: 20px;
+  margin-top: 30px;
   padding-top: 15px;
   padding-bottom: 15px;
   padding-left: 14px;
@@ -59,7 +60,8 @@
 }
 
 a i {
-  color: rgb(204, 68, 142);
+  margin-top: 6px;
+  color: white;
   margin-bottom: 6px;
 }
 

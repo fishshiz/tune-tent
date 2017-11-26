@@ -7,7 +7,6 @@ import { fetchUsers } from './actions/user_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store = configureStore();
-  window.fetchUsers = fetchUsers();
   if (window.currentUser) {
     const preloadedState = {
       session: {
