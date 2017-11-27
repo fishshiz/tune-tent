@@ -5,6 +5,7 @@ class EditForm extends React.Component {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = this.props.artist;
+    this.updateFile = this.updateFile.bind(this);
   }
 
   componentDidMount() {
@@ -23,18 +24,48 @@ class EditForm extends React.Component {
     };
   }
 
+  updateFile(e) {
+    const reader = new FileReader();
+    const file = e.currentTarget.files[0];
+    reader.onloadend = () => {
+      this.setState({ imageUrl: reader.result, imageFile: file});
+    };
+
+    if(file) {
+      reader.readAsDataURL(file);
+    }
+  }
+
     handleSubmit(e) {
       e.preventDefault();
-      this.props.updateUser(this.state).then(() => this.props.history.push('/'));
+      let formData = new FormData();
+      formData.append("user[bio]", this.state.bio);
+      formData.append("user[genre]", this.state.genre);
+      formData.append("user[fb_link]", this.state.fb_link);
+      formData.append("user[twitter_link]", this.state.twitter_link);
+      formData.append("user[soundcloud_link]", this.state.soundcloud_link);
+      formData.append("user[web_link]", this.state.web_link);
+      formData.append("user[image]", this.state.imageFile);
+
+      this.props.updateUser(formData).then(() => this.props.history.push('/'));
     }
 
     render() {
+
+
+
       return (
         <div>
           <h2>Update your Page</h2>
           <form onSubmit={this.handleSubmit}>
             <label>
               Genre
+
+            </label>
+
+            <label>
+              Upload Photo:
+              <input type="file" onChange={this.updateFile}/>
 
             </label>
             <label>
@@ -69,6 +100,7 @@ class EditForm extends React.Component {
             </label>
 
             <input type="submit" value="Update" />
+            <img src={this.state.imageUrl} />
           </form>
         </div>
       );

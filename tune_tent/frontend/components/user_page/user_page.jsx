@@ -46,7 +46,7 @@ class userPage extends React.Component {
           </div>
 
         <div className="photo-cont">
-          <img src={this.props.artist.img_url} />
+          <img className="artist-photo" src={this.props.artist.image_url} />
           <div className="artist-bio-cont">
             <p className="artist-bio">{this.props.artist.bio}</p>
           </div>

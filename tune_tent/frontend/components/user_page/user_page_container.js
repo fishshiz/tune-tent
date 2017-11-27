@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchUser } from '../../actions/user_actions';
+import { fetchUser, updateUser } from '../../actions/user_actions';
 import UserPage from './user_page';
 import { withRouter } from 'react-router';
 import { fetchAlbums } from '../../actions/album_actions';
@@ -17,7 +17,8 @@ const mapStateToProps = (state, ownProps) => {
 
 
 const mapDispatchToProps = dispatch => ({
-  fetchUser: id => dispatch(fetchUser(id))
+  fetchUser: id => dispatch(fetchUser(id)),
+  updateUser: user => dispatch(updateUser(user))
 });
 
 export default withRouter(connect(

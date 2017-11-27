@@ -12,6 +12,16 @@ class Api::UsersController < ApplicationController
     render :index
   end
 
+  def update
+    @user = User.find_by(id: current_user.id)
+
+    if @user.update_attributes(user_params)
+      render "api/users/show"
+    else
+      render json: @user.errors.full_messages, status: 422
+    end
+  end
+
 
   def create
     @user = User.new(user_params)
@@ -32,6 +42,6 @@ class Api::UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:username, :password, :img_url, :bio, :genre, :fb_link, :twitter_link, :soundcloud_link, :web_link)
+    params.require(:user).permit(:id, :username, :password, :image, :bio, :genre, :fb_link, :twitter_link, :soundcloud_link, :web_link)
   end
 end
