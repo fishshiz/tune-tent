@@ -1,14 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import AlbumIndexItem from './album_index_item';
-import AlbumIndexContainer from './album_index_container';
 
 class AlbumIndex extends React.Component {
   constructor(props) {
     super(props);
     console.log(this.props.artistId);
-    let test = this.props.fetchAlbums(this.props.artistId);
-    console.log(test);
+    this.props.fetchAlbums(this.props.artistId);
   }
 
 
@@ -24,7 +22,7 @@ class AlbumIndex extends React.Component {
   }
 
   render() {
-    if(this.props.albums === {}) {
+    if(this.props.albums === undefined) {
       return(
         <h2>This artist does not have any albums...yet.</h2>
       );

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import AlbumIndexItem from './album_index_item';
 
 class userPage extends React.Component {
   constructor(props) {
@@ -28,12 +29,21 @@ class userPage extends React.Component {
         </div>
       );
     } else {
+      const albums = this.props.album;
       return (
         <div className="artist-show-cont">
-        <div className="artist-title-cont">
-          <h2>{this.props.artist.username}</h2>
-          <h1>{this.props.artist.genre}</h1>
-        </div>
+          <div className="artist-title-cont">
+            <h2>{this.props.artist.username}</h2>
+            <h1>{this.props.artist.genre}</h1>
+
+            <div className="album-grid">
+              {Object.values(albums).map((album, idx) => <AlbumIndexItem
+                className="album"
+                album={album}
+                key={idx} />)}
+            </div>
+
+          </div>
 
         <div className="photo-cont">
           <img src={this.props.artist.img_url} />
@@ -49,6 +59,8 @@ class userPage extends React.Component {
           <i class="fa fa-soundcloud fa-3x" aria-hidden="true"></i></a>
           <a href={this.props.artist.web_link}>
           <i class="fa fa-laptop fa-3x" aria-hidden="true"></i></a>
+
+
           </span>
         </div>
       </div>

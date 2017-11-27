@@ -13,7 +13,7 @@ class Api::AlbumsController < ApplicationController
   end
 
   def index
-    @albums = Album.select { |album| album.user_id == params[:id] }
+    @albums = Album.select { |album| album.user_id == params[:user_id] }
 
     render "api/albums/index"
   end

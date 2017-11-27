@@ -1,7 +1,7 @@
-import REact from 'react';
+import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
-const AlbumIndexItem = ({ album, router, history }) => {
+const AlbumIndexItem = ({ album }) => {
   return (
     <li>
       <Link to={`/albums/${album.id}`}>
@@ -12,4 +12,4 @@ const AlbumIndexItem = ({ album, router, history }) => {
   );
 };
 
-export default withRouter(AlbumIndexItem);
+export default AlbumIndexItem;
