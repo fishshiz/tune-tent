@@ -1,7 +1,7 @@
 class Api::TracksController < ApplicationController
 
   def index
-    @tracks = Track.select { |track| track.album_id == params[:album_id] }
+    @tracks = Track.select { |track| track.album_id.to_s == params[:album_id] }
     render "api/tracks/index"
   end
 

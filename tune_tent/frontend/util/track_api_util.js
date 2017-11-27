@@ -1,6 +1,6 @@
-export const createTrack = (track, albumId) => {
+export const createTrack = (track) => {
   $.ajax({
-    url: `api/albums/${albumId}/tracks`,
+    url: `api/albums/${track.album_id}/tracks`,
     method: 'POST',
     track
   });
