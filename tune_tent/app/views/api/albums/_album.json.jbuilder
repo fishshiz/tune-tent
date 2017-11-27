@@ -1,1 +1,3 @@
-json.extract! album, :id, :title, :album_img_url
+json.id album.id
+json.title album.title
+json.image_url asset_path(album.image.url)
