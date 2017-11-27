@@ -3,7 +3,9 @@ import { Link, withRouter } from 'react-router-dom';
 
 const TrackIndexItem = ({ track }) => {
   return (
-    <h2>{track.title}</h2>
+    <div className="track-item">
+    <li>{track.title}</li>
+    </div>
   );
 };
 

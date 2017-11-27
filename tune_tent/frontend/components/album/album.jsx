@@ -37,15 +37,17 @@ class AlbumPage extends React.Component {
 
 
             <div className="track-list">
+              <ol>
               {Object.values(tracks).map((track, idx) => <TrackIndexItem
                 className="track"
                 track={track}
                 key={idx} />)}
+                </ol>
             </div>
 
           </div>
 
-        <div className="photo-cont">
+        <div className="album-photo-cont">
           <img src={this.props.album.album_img_url} />
 
         </div>
