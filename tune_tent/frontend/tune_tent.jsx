@@ -2,11 +2,13 @@ import React from 'react';
 import configureStore from './store/store';
 import ReactDOM from 'react-dom';
 import Root from './components/root';
-import { fetchUsers } from './actions/user_actions';
+import { createTrack, fetchTracks } from './util/track_api_util';
 
 
 document.addEventListener('DOMContentLoaded', () => {
   let store = configureStore();
+  window.createTrack = createTrack;
+  window.fetchTracks = fetchTracks;
   if (window.currentUser) {
     const preloadedState = {
       session: {

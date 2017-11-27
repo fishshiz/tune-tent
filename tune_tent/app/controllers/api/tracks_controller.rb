@@ -2,7 +2,7 @@ class Api::TracksController < ApplicationController
 
   def index
     @tracks = Track.select { |track| track.album_id == params[:album_id] }
-    render "api/albums/show"
+    render "api/tracks/index"
   end
 
   def create
