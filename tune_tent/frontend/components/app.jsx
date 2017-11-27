@@ -22,7 +22,6 @@ const App = () => (
       <AuthRoute path="/signup" component={SessionFormContainer} />
       <AuthRoute path="/login" component={SessionFormContainer} />
       <ProtectedRoute exact path="/artists/:artistId" component={UserPageContainer} />
-      <ProtectedRoute exact path="/artists/:artistId/edit" component={EditUserContainer} />
       <ProtectedRoute exact path="/albums/:albumId" component={AlbumContainer} />
       <ProtectedRoute path="/" component={MainPageContainer} />
     </Switch>
