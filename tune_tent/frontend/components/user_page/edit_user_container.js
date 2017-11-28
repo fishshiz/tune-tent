@@ -7,6 +7,7 @@ const mapStateToProps = (state, ownProps) => {
 
   const artistId = parseInt(ownProps.match.params.artistId);
   return {
+    currentUser: state.session.currentUser,
     artistId,
     artist: state.entities.users[artistId]
   };
