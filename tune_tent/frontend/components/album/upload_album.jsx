@@ -8,12 +8,16 @@ class UploadForm extends React.Component {
     // console.log(this);
     this.state = {
       title: "",
+      id: "",
+      image: "",
+      user_id: this.props.currentUser.id,
       imageUrl: "",
       imageFile: "",
       tracks: [],
       trackCount: 1
     };
     // console.log(this);
+    this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateFile = this.updateFile.bind(this);
     this.addTrack = this.addTrack.bind(this);
@@ -39,19 +43,21 @@ class UploadForm extends React.Component {
     console.log(this);
   }
 
-  clearTracks() {
-
+  clearTracks(e) {
+    e.preventDefault();
     this.setState({ tracks: [], trackCount: 0 });
   }
 
-  addTrack() {
-console.log(this);
-    let newTrackState = this.state.tracks;
-    newTrackState.push(this.trackItem(""));
-    this.setState({ tracks: newTrackState, trackCount: this.state.trackCount + 1 });
+  addTrack(e) {
+  e.preventDefault();
+  let newTrackState = this.state.tracks;
+  newTrackState.push(this.trackItem(""));
+  this.setState({ tracks: newTrackState, trackCount: this.state.trackCount + 1 });
+  this.trackItem("");
   }
 
-  removeTrack() {
+  removeTrack(e) {
+    e.preventDefault();
     let newTrackState = this.tracks;
     newTrackState.pop();
     this.setState({ tracks: newTrackState, trackCount: this.state.trackCount - 1 });
@@ -98,7 +104,7 @@ console.log(this);
                   <input type="file" onChange={this.updateFile}/>
                 </label>
 
-                <button onClick={this.handleSubmit}>Submit</button>
+                <button type="submit" onClick={this.handleSubmit}>Submit</button>
                 <button onClick={this.addTrack}>Add Track</button>
                 <button onClick={this.removeTrack}>Remove Track</button>
                 <button onClick={this.clearTracks}>Clear Tracks</button>

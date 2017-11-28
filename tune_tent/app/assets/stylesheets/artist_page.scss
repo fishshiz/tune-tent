@@ -6,6 +6,7 @@
   text-align: center;
   overflow: hidden;
   text-transform: capitalize;
+  width: 60%;
 }
 
 .artist-title-cont h2 {
@@ -30,15 +31,11 @@
   list-style: none;
   display: flex;
   flex-direction: row;
-  width: 500px;
-  height: 300px;
+  width: 100%;
 }
 
 .album-bundle {
   display: inline-block;
-  width: 25%;
-  margin-right: 3px;
-  margin-top: 13px;
   text-align: center;
 }
 
