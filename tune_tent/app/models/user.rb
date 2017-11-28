@@ -55,4 +55,9 @@ class User < ApplicationRecord
     self.session_token ||= SecureRandom.urlsafe_base64(16)
   end
 
+  def self.top_five_results(query_param)
+    param = '%' + query_param.downcase + '%'
+    User.where('lower(username) LIKE ?', param).limit(5)
+  end
+
 end

@@ -7,6 +7,10 @@ Rails.application.routes.draw do
       resources :tracks, only: [:index, :create]
     end
     resource :session, only: [:create, :destroy, :show]
+    resources :music_searches, only: [:index] do
+      get "songs_by_artist", on: :collection
+      get "songs_by_album", on: :collection
+    end
   end
 
   root "static_pages#root"

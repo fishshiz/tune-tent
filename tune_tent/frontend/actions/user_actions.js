@@ -1,6 +1,7 @@
 import * as UserAPIUtil from '../util/user_api_util';
 export const RECEIVE_USER = 'RECEIVE_USER';
 export const RECEIVE_USERS = 'RECEIVE_USERS';
+export const RECEIVE_SEARCH_RESULTS = 'RECEIVE_SEARCH_RESULTS';
 
 export const fetchUser = id => dispatch => (
   UserAPIUtil.fetchUser(id).
@@ -20,6 +21,11 @@ export const updateUser = user => dispatch => (
 export const deleteUser = id => dispatch => (
   UserAPIUtil.deleteUser(id).then(user => dispatch(receiveUser(null)))
 );
+
+const receiveSearchResults = searchResults => ({
+  type: RECEIVE_SEARCH_RESULTS,
+  searchResults
+});
 
 const receiveUser = user => ({
   type: RECEIVE_USER,
