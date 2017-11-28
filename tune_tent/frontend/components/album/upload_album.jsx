@@ -5,50 +5,60 @@ import TrackItem from './upload_track';
 class UploadForm extends React.Component {
   constructor(props) {
     super(props);
+    // console.log(this);
     this.state = {
-      tracks: []
+      title: "",
+      imageUrl: "",
+      imageFile: "",
+      tracks: [],
+      trackCount: 1
     };
+    // console.log(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.state = this.props.artist;
     this.updateFile = this.updateFile.bind(this);
-    this.updateTrack = this.updateTrack.bind(this);
+    this.addTrack = this.addTrack.bind(this);
   }
 
   update(field) {
     return (e) => {
-      this.setState({[field]: e.target.value});
+      this.setState({ [field]: e.target.value });
     };
   }
 
   updateFile(e) {
+    // console.log(this);
     const reader = new FileReader();
     const file = e.currentTarget.files[0];
     reader.onloadend = () => {
       this.setState({ imageUrl: reader.result, imageFile: file});
     };
-
+    // console.log(this);
     if(file) {
       reader.readAsDataURL(file);
     }
+    console.log(this);
   }
 
   clearTracks() {
-    this.setState({tracks: []});
+
+    this.setState({ tracks: [], trackCount: 0 });
   }
 
   addTrack() {
-    let newTrackState = this.tracks;
+console.log(this);
+    let newTrackState = this.state.tracks;
     newTrackState.push(this.trackItem(""));
-    this.setState({tracks: newTrackState});
+    this.setState({ tracks: newTrackState, trackCount: this.state.trackCount + 1 });
   }
 
   removeTrack() {
     let newTrackState = this.tracks;
     newTrackState.pop();
-    this.setState({tracks: newTrackState});
+    this.setState({ tracks: newTrackState, trackCount: this.state.trackCount - 1 });
   }
 
   trackItem(title) {
+    // console.log(this);
     return (
       <TrackItem
         title={title}
@@ -59,31 +69,20 @@ class UploadForm extends React.Component {
   }
 
     handleSubmit(e) {
+      // console.log(this);
       e.preventDefault();
       let formData = new FormData();
       formData.append("album[title]", this.state.title);
       formData.append("album[image]", this.state.imageFile);
 
-      if (this.state.tracks > 0) {
-        for(let i = 0, i < this.state.tracks.length, i ++) {
 
-        }
-      }
 
-      this.props.updateUser(formData).then(() => this.props.history.push(`/artists/${this.state.id}`));
+      this.props.createAlbum(formData).then(() => this.props.history.push(`/artists/${this.props.currentUser.id}`));
     }
 
     form() {
-      if (!this.props.artist) {
-        return (
-          <div>
-            <div>Loading...</div>
-          </div>
-        );
-      } else {
-
+      // console.log(this);
       return (
-
           <form className="album-form"
             onSubmit={this.handleSubmit}>
               <div>
@@ -91,7 +90,7 @@ class UploadForm extends React.Component {
                 <label>
                   Title
                   <textarea
-                    value={this.state.bio}
+                    value={this.state.title}
                     onChange={this.update('title')} />
                 </label>
                 <label>
@@ -111,9 +110,9 @@ class UploadForm extends React.Component {
 
       );
     }
-  }
 
     render() {
+      // console.log(this);
         return (
           <div>
             {this.form()}

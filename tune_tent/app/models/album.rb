@@ -3,6 +3,6 @@ class Album < ApplicationRecord
   belongs_to :user
   has_many :tracks
 
-  has_attached_file :image, default_url: "edan.jpg"
+  has_attached_file :image, default_url: "missing_album.png"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 end

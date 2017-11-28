@@ -48,7 +48,7 @@ class AlbumPage extends React.Component {
           </div>
 
         <div className="album-photo-cont">
-          <img src={this.props.album.album_img_url} />
+          <img src={this.props.album.image_url} />
 
         </div>
       </div>

@@ -73,6 +73,17 @@ class EditForm extends React.Component {
                 <h2>Update your Page</h2>
                 <label>
                   Genre:
+                  <select value={this.state.genre} onChange={this.update('genre')}>
+                    <option value="folk">Folk</option>
+                    <option value="rock">Rock</option>
+                    <option value="jazz">Jazz</option>
+                    <option value="pop">Pop</option>
+                    <option value="reggae">Reggae</option>
+                    <option value="hip-hop">Hip Hop</option>
+                    <option value="electronic">Electronic</option>
+                    <option value="folk-rock">Folk Rock</option>
+                    <option value="country">Country</option>
+                  </select>
                 </label>
                 <label>
                   Upload Photo:

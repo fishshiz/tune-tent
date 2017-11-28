@@ -10,6 +10,7 @@ import AlbumContainer from './album/album_container';
 import EditButtonContainer from './user_page/edit_button_container';
 import EditUserContainer from './user_page/edit_user_container';
 import FooterContainer from './footer/footer_container';
+import UploadAlbumContainer from './album/upload_album_container';
 
 
 const App = () => (
@@ -23,6 +24,7 @@ const App = () => (
       <AuthRoute path="/login" component={SessionFormContainer} />
       <ProtectedRoute exact path="/artists/:artistId" component={UserPageContainer} />
       <ProtectedRoute exact path="/artists/:artistId/edit" component={EditUserContainer} />
+      <ProtectedRoute exact path="/albums/new" component={UploadAlbumContainer} />
       <ProtectedRoute exact path="/albums/:albumId" component={AlbumContainer} />
       <ProtectedRoute path="/" component={MainPageContainer} />
     </Switch>

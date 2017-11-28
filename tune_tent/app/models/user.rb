@@ -22,7 +22,7 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :username, :session_token, uniqueness: true
 
-  has_attached_file :image, default_url: "edan.jpg"
+  has_attached_file :image, default_url: "missing.png"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   has_many :albums

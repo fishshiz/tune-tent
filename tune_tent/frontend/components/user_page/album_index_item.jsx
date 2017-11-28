@@ -5,7 +5,7 @@ const AlbumIndexItem = ({ album }) => {
   return (
 
       <Link className="album-bundle" to={`/albums/${album.id}`}>
-        <img className="album-img" src={album.image} />
+        <img className="album-img" src={album.image_url} />
         {album.title}
       </Link>
 

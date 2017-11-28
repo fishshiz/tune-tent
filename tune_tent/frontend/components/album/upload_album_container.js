@@ -3,7 +3,7 @@ import UploadForm from './upload_album';
 import { createAlbum } from '../../actions/album_actions';
 import { createTrack } from '../../actions/track_actions';
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
     currentUser: state.session.currentUser,
     track: state.entities.tracks
 });
