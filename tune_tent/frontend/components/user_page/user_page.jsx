@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import AlbumIndexItem from './album_index_item';
+import Slider from 'react-slick';
+
 
 class userPage extends React.Component {
   constructor(props) {
@@ -18,6 +20,13 @@ class userPage extends React.Component {
     }
   }
 
+  next() {
+    this.slider.slickNext();
+  }
+  previous() {
+    this.slider.slickPrev();
+  }
+
   renderContent() {
     if (!this.props.artist) {
       return (
@@ -27,6 +36,13 @@ class userPage extends React.Component {
       );
     } else {
       const albums = this.props.album;
+      const settings = {
+      dots: true,
+      infinite: false,
+      speed: 500,
+      slidesToShow: 3,
+      slidesToScroll: 1
+    };
       return (
         <div className="artist-show-cont">
           <div className="artist-title-cont">
@@ -34,10 +50,16 @@ class userPage extends React.Component {
             <h1>{this.props.artist.genre}</h1>
 
             <div className="album-grid">
+              <Slider {...settings}>
               {Object.values(albums).map((album, idx) => <AlbumIndexItem
                 className="album"
                 album={album}
                 key={idx} />)}
+                </Slider>
+                <div style={{textAlign: 'center'}}>
+          <button className='button' onClick={this.previous}>Previous</button>
+          <button className='button' onClick={this.next}>Next</button>
+        </div>
             </div>
 
           </div>
