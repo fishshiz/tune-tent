@@ -11,6 +11,9 @@ Rails.application.routes.draw do
       get "songs_by_artist", on: :collection
       get "songs_by_album", on: :collection
     end
+    resources :upload, only: [:create] do
+      post "payload_request", on: :collection
+    end
   end
 
   root "static_pages#root"
