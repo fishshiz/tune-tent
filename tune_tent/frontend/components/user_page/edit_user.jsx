@@ -9,17 +9,14 @@ class EditForm extends React.Component {
     this.updateFile = this.updateFile.bind(this);
   }
 
-  componentWillMount() {
-    if(this.props.currentUser.id !== this.props.artistId) {
-      <Redirect to="/" />;
-    }
-  }
-
   componentDidMount() {
       this.props.fetchUser(this.props.artistId);
   }
 
   componentWillReceiveProps(newProps) {
+    if(this.props.currentUser.id !== this.props.artistId) {
+      this.props.history.push(`/`);
+    }
     if(this.props.artistId !== newProps.artistId) {
       this.props.fetchUser(newProps.artistId);
 
@@ -117,7 +114,7 @@ class EditForm extends React.Component {
               <img className="upload-display" src={this.state.imageUrl} />
             </div>
           </form>
-      
+
       );
     }
   }

@@ -48,13 +48,13 @@ class userPage extends React.Component {
             <p className="artist-bio">{this.props.artist.bio}</p>
           </div>
           <span className="social">
-          <a href={this.props.artist.fb_link}>
+          <a href={`${this.props.artist.fb_link}`}>
           <i class="fa fa-facebook fa-3x" aria-hidden="true"></i></a>
-          <a href={this.props.artist.twitter_link}>
+          <a href={`${this.props.artist.twitter_link}`}>
           <i class="fa fa-twitter fa-3x" aria-hidden="true"></i></a>
-          <a href={this.props.artist.soundcloud_link}>
+          <a href={`${this.props.artist.soundcloud_link}`}>
           <i class="fa fa-soundcloud fa-3x" aria-hidden="true"></i></a>
-          <a href={this.props.artist.web_link}>
+          <a href={`${this.props.artist.web_link}`}>
           <i class="fa fa-laptop fa-3x" aria-hidden="true"></i></a>
 
 
