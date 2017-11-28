@@ -10,7 +10,7 @@ class EditForm extends React.Component {
   }
 
   componentWillMount() {
-    if(this.props.currentUser.id != this.props.artistId) {
+    if(this.props.currentUser.id !== this.props.artistId) {
       <Redirect to="/" />;
     }
   }
@@ -69,55 +69,55 @@ class EditForm extends React.Component {
       } else {
 
       return (
-        <div className="edit">
-          <h2>Update your Page</h2>
+
           <form className="artist-form"
             onSubmit={this.handleSubmit}>
-            <label>
-              Genre
-
-            </label>
-
-            <label>
-              Upload Photo:
-              <input type="file" onChange={this.updateFile}/>
-
-            </label>
-            <label>
-              Bio
-              <textarea
-                value={this.state.bio}
-                onChange={this.update('bio')} />
-            </label>
-            <label>
-              Facebook link
-              <input type="text"
-                    value={this.state.fb_link}
-                    onChange={this.update('fb_link')} />
-            </label>
-            <label>
-              Twitter link
-              <input type="text"
-                    value={this.state.twitter_link}
-                    onChange={this.update('twitter_link')} />
-            </label>
-            <label>
-              Soundcloud link
-              <input type="text"
-                    value={this.state.soundcloud_link}
-                    onChange={this.update('soundcloud_link')} />
-            </label>
-            <label>
-              Web link
-              <input type="text"
-                    value={this.state.web_link}
-                    onChange={this.update('web_link')} />
-            </label>
-
-            <button onClick={this.handleSubmit}>Submit</button>
-            <img className="upload-display" src={this.state.imageUrl} />
+              <div className="form-side">
+                <h2>Update your Page</h2>
+                <label>
+                  Genre:
+                </label>
+                <label>
+                  Upload Photo:
+                  <input type="file" onChange={this.updateFile}/>
+                </label>
+                <label>
+                  Bio
+                  <textarea
+                    value={this.state.bio}
+                    onChange={this.update('bio')} />
+                </label>
+                <label>
+                  Facebook link
+                  <input type="text"
+                        value={this.state.fb_link}
+                        onChange={this.update('fb_link')} />
+                </label>
+                <label>
+                  Twitter link
+                  <input type="text"
+                        value={this.state.twitter_link}
+                        onChange={this.update('twitter_link')} />
+                </label>
+                <label>
+                  Soundcloud link
+                  <input type="text"
+                        value={this.state.soundcloud_link}
+                        onChange={this.update('soundcloud_link')} />
+                </label>
+                <label>
+                  Web link
+                  <input type="text"
+                        value={this.state.web_link}
+                        onChange={this.update('web_link')} />
+                </label>
+                <button onClick={this.handleSubmit}>Submit</button>
+              </div>
+            <div className="upload-cont">
+              <img className="upload-display" src={this.state.imageUrl} />
+            </div>
           </form>
-        </div>
+      
       );
     }
   }
