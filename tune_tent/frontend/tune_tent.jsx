@@ -3,12 +3,16 @@ import configureStore from './store/store';
 import ReactDOM from 'react-dom';
 import Root from './components/root';
 import { createTrack, fetchTracks } from './util/track_api_util';
+import { test, createAlbum } from './util/album_api_util';
 
 
 document.addEventListener('DOMContentLoaded', () => {
   let store = configureStore();
   window.createTrack = createTrack;
   window.fetchTracks = fetchTracks;
+  window.store = store;
+
+  window.createAlbum = createAlbum;
   if (window.currentUser) {
     const preloadedState = {
       session: {

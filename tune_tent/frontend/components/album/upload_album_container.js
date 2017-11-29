@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import UploadForm from './upload_album';
 import { createAlbum } from '../../actions/album_actions';
-import { createTrack } from '../../actions/track_actions';
+import { createTracks } from '../../actions/track_actions';
 
 const mapStateToProps = (state) => ({
     currentUser: state.session.currentUser,
@@ -10,7 +10,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = dispatch => ({
   createAlbum: album => dispatch(createAlbum(album)),
-  createTrack: track => dispatch(createTrack(track))
+  createTracks: tracks => dispatch(createTracks(tracks))
 });
 
 export default connect(

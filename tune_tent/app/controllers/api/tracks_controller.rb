@@ -6,7 +6,10 @@ class Api::TracksController < ApplicationController
   end
 
   def create
-    @track = Album.find(params[:album_id]).tracks.new(track_params)
+    album_id = params[:album_id]
+    params[:tracks].each do |track|
+      @track = Track.new(track)
+      @track.album_id = album_id
     if @track.save
       render json: @track
     else
@@ -17,6 +20,6 @@ class Api::TracksController < ApplicationController
   private
 
   def track_params
-    params.require(:track).permit(:title, :album_id, :audio)
+    params.require(:track).permit(:title, :album_id, :audio, :tracks)
   end
 end

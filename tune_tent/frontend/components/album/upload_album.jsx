@@ -8,12 +8,9 @@ class UploadForm extends React.Component {
     this.state = {
       title: "",
       id: "",
-      image: "",
       user_id: this.props.currentUser.id,
-      imageUrl: "",
-      imageFile: "",
       tracks: [],
-      trackCount: 1
+      trackCount: 0
     };
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,7 +22,7 @@ class UploadForm extends React.Component {
 
 
   update(field) {
-    return (e) => {
+    return e => {
       this.setState({ [field]: e.target.value });
     };
   }
@@ -34,7 +31,7 @@ class UploadForm extends React.Component {
     const reader = new FileReader();
     const file = e.currentTarget.files[0];
     reader.onloadend = () => {
-      this.setState({ imageUrl: reader.result, imageFile: file});
+      this.setState({ album_img_url: reader.result});
     };
     if(file) {
       reader.readAsDataURL(file);
@@ -48,9 +45,11 @@ class UploadForm extends React.Component {
 
   addTrack(e) {
     e.preventDefault();
-    let newTrackState = this.state.tracks;
-    newTrackState.push(this.trackItem(""));
-    this.setState({ tracks: newTrackState, trackCount: this.state.trackCount + 1 });
+    if(this.state.trackCount < 12) {
+      let newTrackState = this.state.tracks;
+      newTrackState.push(this.trackItem());
+      this.setState({ tracks: newTrackState, trackCount: this.state.trackCount + 1 });
+    }
   }
 
   removeTrack(e) {
@@ -63,7 +62,8 @@ class UploadForm extends React.Component {
   trackItem(title) {
     return (
       <TrackItem
-        title={title}
+        title={this.tracks}
+        audio={this.tracks}
         updateFile={this.updateFile}
         update={this.update}
         />
@@ -71,18 +71,9 @@ class UploadForm extends React.Component {
   }
 
     handleSubmit(e) {
+      debugger;
       e.preventDefault();
-      let formData = new FormData();
-      formData.append("album[title]", this.state.title);
-      formData.append("album[image]", this.state.imageFile || this.state.image_url);
-
-      this.state.tracks.forEach(track => {
-        formData.append(`album[tracks][${track.id}][title]`, this.state.tracks[`${track.id}`].props.title);
-        formData.append(`album[tracks][${track.id}][audio]`, this.state.tracks[`${track.id}`].props.audio);
-      });
-
-
-      this.props.createAlbum(formData).then(() => this.props.history.push(`/artists/${this.props.currentUser.id}`));
+      this.props.createAlbum(this.state).then(tracks => this.props.createTracks(tracks));
     }
 
     form() {
@@ -115,7 +106,7 @@ class UploadForm extends React.Component {
                 <button onClick={this.clearTracks}>Clear Tracks</button>
               </div>
             <div>
-              <img src={this.state.imageUrl} />
+
             </div>
           </form>
 

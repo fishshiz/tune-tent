@@ -20,13 +20,6 @@ class userPage extends React.Component {
     }
   }
 
-  next() {
-    this.slider.slickNext();
-  }
-  previous() {
-    this.slider.slickPrev();
-  }
-
   renderContent() {
     if (!this.props.artist) {
       return (
@@ -36,50 +29,36 @@ class userPage extends React.Component {
       );
     } else {
       const albums = this.props.album;
-      const settings = {
-      dots: true,
-      infinite: false,
-      speed: 500,
-      slidesToShow: 3,
-      slidesToScroll: 1
-    };
       return (
         <div className="artist-show-cont">
           <div className="artist-title-cont">
             <h2>{this.props.artist.username}</h2>
             <h1>{this.props.artist.genre}</h1>
-
             <div className="album-grid">
-              <Slider {...settings}>
               {Object.values(albums).map((album, idx) => <AlbumIndexItem
                 className="album"
                 album={album}
                 key={idx} />)}
-                </Slider>
-                <div style={{textAlign: 'center'}}>
-          <button className='button' onClick={this.previous}>Previous</button>
-          <button className='button' onClick={this.next}>Next</button>
-        </div>
             </div>
-
           </div>
 
+
         <div className="photo-cont">
+          <div className="artist-photo-cont">
           <img className="artist-photo" src={this.props.artist.image_url} />
+          </div>
           <div className="artist-bio-cont">
             <p className="artist-bio">{this.props.artist.bio}</p>
           </div>
           <span className="social">
-          <a href={`${this.props.artist.fb_link}`}>
-          <i class="fa fa-facebook fa-3x" aria-hidden="true"></i></a>
-          <a href={`${this.props.artist.twitter_link}`}>
-          <i class="fa fa-twitter fa-3x" aria-hidden="true"></i></a>
-          <a href={`${this.props.artist.soundcloud_link}`}>
-          <i class="fa fa-soundcloud fa-3x" aria-hidden="true"></i></a>
-          <a href={`${this.props.artist.web_link}`}>
-          <i class="fa fa-laptop fa-3x" aria-hidden="true"></i></a>
-
-
+            <a href={`${this.props.artist.fb_link}`}>
+            <i class="fa fa-facebook fa-3x" aria-hidden="true"></i></a>
+            <a href={`${this.props.artist.twitter_link}`}>
+            <i class="fa fa-twitter fa-3x" aria-hidden="true"></i></a>
+            <a href={`${this.props.artist.soundcloud_link}`}>
+            <i class="fa fa-soundcloud fa-3x" aria-hidden="true"></i></a>
+            <a href={`${this.props.artist.web_link}`}>
+            <i class="fa fa-laptop fa-3x" aria-hidden="true"></i></a>
           </span>
         </div>
       </div>
