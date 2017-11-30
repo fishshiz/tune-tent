@@ -27,6 +27,21 @@
   display: flex;
   overflow: auto;
   height: 80%;
+  background-color: rgb(210, 156, 208);
+  border-radius: 4px;
+  margin-top: 8px;
+}
+
+.empty-album-grid {
+  display: flex;
+  overflow: auto;
+  height: 80%;
+  background-color: rgb(210, 156, 208);
+  border-radius: 4px;
+  color: white;
+  margin-top: 8px;
+  text-align: center;
+
 }
 
 .album-img {

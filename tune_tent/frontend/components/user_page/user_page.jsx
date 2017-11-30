@@ -20,6 +20,27 @@ class userPage extends React.Component {
     }
   }
 
+  albumGrid() {
+    const albums = this.props.album;
+    console.log(albums);
+    if (albums.length !== 0) {
+      return (
+        <div className="album-grid">
+          {Object.values(albums).map((album, idx) => <AlbumIndexItem
+            className="album"
+            album={album}
+            key={idx} />)}
+          </div>
+        );
+    } else {
+      return (
+        <div className="empty-album-grid">
+          <h3>This artist does not have any albums... yet.</h3>
+        </div>
+      );
+    }
+  }
+
   renderContent() {
     if (!this.props.artist) {
       return (
@@ -34,11 +55,8 @@ class userPage extends React.Component {
           <div className="artist-title-cont">
             <h2>{this.props.artist.username}</h2>
             <h1>{this.props.artist.genre}</h1>
-            <div className="album-grid">
-              {Object.values(albums).map((album, idx) => <AlbumIndexItem
-                className="album"
-                album={album}
-                key={idx} />)}
+            <div>
+            {this.albumGrid()}
             </div>
           </div>
 

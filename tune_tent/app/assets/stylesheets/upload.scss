@@ -1,18 +1,131 @@
 .album-form {
   background-color: rgb(215, 120, 200);
+  width: 100%;
+  height: 100%;
+  margin: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.track-field {
+  padding: 15px;
+  width: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-around;
+  margin: 15px;
+
+}
+
+.photo-cont {
+  padding:5px 10px;
+  position:relative;
+  color:#fff;
+  border-radius:2px;
+  text-align:center;
+  float:left;
+  cursor:pointer;
+  border: 1px solid rgb(189, 66, 148);
+  height: 80%;
+  width: 50%;
+  overflow: hidden;
+  display: flex;
   justify-content: center;
-  width: 80%;
-  margin: none;
+  align-items: center;
+
 }
 
+.second-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 40%;
+  height: 50%;
+}
 
+.photo-cont i {
+  z-index: 1;
+  position: relative;
+}
+.photo-cont img {
+  z-index: 2;
+  position: absolute;
 
-.track-input {
+}
+
+.hide-btn {
+  padding:5px 10px;
+  position:relative;
+  color:#fff;
+  border-radius:2px;
+  text-align:center;
+  float:left;
+  cursor:pointer
+}
+
+.upload-form-cont {
+  height: 600px;
+  display: flex;
+  justify-content: center;
+}
+
+.album-title {
   background-color: white;
+  color: rgb(235, 113, 183);
+  border: 3px solid rgb(235, 113, 183);
+  height: 50px;
+  border-radius: 8px;
+  padding: 12px 45px;
+  margin: 3px;
+  box-sizing: border-box;
 }
 
-.track-bundle {
-  padding: 3px;
+.track-field input {
+  background-color: white;
+  color: rgb(235, 113, 183);
+  border: 3px solid rgb(235, 113, 183);
+  height: 40px;
+  border-radius: 8px;
+  padding: 12px 45px;
+  margin: 3px;
+  box-sizing: border-box;
+}
+
+.buttonz {
+  display: flex;
+  justify-content: space-around;
+  padding: 8px;
+}
+
+
+.track-field-cont {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 40%;
+  overflow: auto;
+  border: 1px solid rgb(252, 154, 176);
+  border-radius: 8px;
+}
+
+.upload-title {
+  font-size: 30px;
+  color: white;
+  font-family: sans-serif;
+  padding: 10px;
+  margin: 10px;
+}
+
+.file-btn {
+  position: absolute;
+    z-index: 1000;
+    opacity: 0;
+    cursor: pointer;
+    right: 0;
+    top: 0;
+    height: 100%;
+    font-size: 24px;
+    width: 100%;
 }

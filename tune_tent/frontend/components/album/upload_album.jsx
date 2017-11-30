@@ -18,12 +18,23 @@ class UploadForm extends React.Component {
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
     this.clearTracks = this.clearTracks.bind(this);
+    this.updateTrackTitle = this.updateTrackTitle.bind(this);
   }
 
 
   update(field) {
     return e => {
       this.setState({ [field]: e.target.value });
+    };
+  }
+
+  updateTrackTitle(idx) {
+    return (e) => {
+      const newTracks = this.state.tracks.map((track, tidx) => {
+        if (idx!== tidx) return track;
+        return {title: e.target.value};
+      });
+      this.setState({tracks: newTracks});
     };
   }
 
@@ -40,35 +51,27 @@ class UploadForm extends React.Component {
 
   clearTracks(e) {
     e.preventDefault();
-    this.setState({ tracks: [], trackCount: 1 });
+    this.setState({ tracks: [], trackCount: 0 });
   }
 
   addTrack(e) {
     e.preventDefault();
-    if(this.state.trackCount < 12) {
-      let newTrackState = this.state.tracks;
-      newTrackState.push(this.trackItem());
-      this.setState({ tracks: newTrackState, trackCount: this.state.trackCount + 1 });
-    }
+    this.setState({
+      trackCount: this.state.trackCount + 1,
+      tracks: this.state.tracks.concat([{title: '', audio: '', trackNum: this.state.trackCount}])
+    });
   }
 
-  removeTrack(e) {
-    e.preventDefault();
-    let newTrackState = this.state.tracks;
-    newTrackState.pop();
-    this.setState({ tracks: newTrackState, trackCount: this.state.trackCount - 1 });
+  removeTrack(idx) {
+    return (e) => {
+      e.preventDefault();
+      this.setState({
+        trackCount: this.state.trackCount - 1,
+        tracks: this.state.tracks.filter((t, tidx) => idx !== tidx)
+      });
+    };
   }
 
-  trackItem(title) {
-    return (
-      <TrackItem
-        title={this.tracks}
-        audio={this.tracks}
-        updateFile={this.updateFile}
-        update={this.update}
-        />
-    );
-  }
 
     handleSubmit(e) {
       debugger;
@@ -78,44 +81,68 @@ class UploadForm extends React.Component {
 
     form() {
       return (
-          <form className="album-form"
-            onSubmit={this.handleSubmit}>
-              <div>
-                <h2>Add an album</h2>
-                <label>
-                  Title
-                  <textarea
-                    value={this.state.title}
-                    onChange={this.update('title')} />
-                </label>
-                <label>
-                  Upload Artwork
+        <div className="upload-form-cont">
+        <form className="album-form"
+          onSubmit={this.handleSubmit}>
+            <h2 className="upload-title">Add an album</h2>
+            <div className="second-row">
+
+              <input className="album-title"
+                type="text"
+                placeholder="Album title"
+                value={this.state.title}
+                onChange={this.update('title')} />
+            
+
+            <div className="photo-cont">
+              <img src={this.state.album_img_url} />
+              <i className="fa fa-picture-o fa-4x" aria-hidden="true">
+                <input
+                  type="file"
+                  className="file-btn"
+                  value={this.state.image}
+                  onChange={this.updateFile}/>
+              </i>
+            </div>
+            </div>
+
+            <ul className="track-field-cont">
+            {this.state.tracks.map((track, idx) => (
+              <div className="track-field">
+                <p>{idx + 1}.</p>
+                <input
+                  type="text"
+                  placeholder="Track Title"
+                  value={track.title}
+                  onChange={this.updateTrackTitle(idx)}
+                  />
+                <button onClick={this.removeTrack(idx)}>Remove Track</button>
+                <div className="hide-btn">
+                <i className="fa fa-cloud-upload fa-2x" aria-hidden="true">
                   <input
                     type="file"
-                    value={this.state.image}
-                    onChange={this.updateFile}/>
-                </label>
-
-                <ul>
-                  { this.state.tracks }
-                </ul>
-
-                <button type="submit" onClick={this.handleSubmit}>Submit</button>
-                <button onClick={this.addTrack}>Add Track</button>
-                <button onClick={this.removeTrack}>Remove Track</button>
-                <button onClick={this.clearTracks}>Clear Tracks</button>
+                    onChange={this.updateFile}
+                    className="file-btn"
+                    />
+                </i>
+                </div>
               </div>
-            <div>
+              ))}
+            </ul>
 
+            <div className="buttonz">
+            <button className="base-btn" type="submit" onClick={this.handleSubmit}>Submit</button>
+            <button className="base-btn" onClick={this.addTrack}>Add Track</button>
+            <button className="base-btn" onClick={this.clearTracks}>Clear Tracks</button>
             </div>
           </form>
-
+        </div>
       );
     }
 
     render() {
         return (
-          <div>
+          <div >
             {this.form()}
           </div>
         );
