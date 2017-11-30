@@ -4,7 +4,6 @@ class Api::AlbumsController < ApplicationController
   end
 
   def create
-    debugger
     @album = current_user.albums.new(album_params)
     if @album.save
       render "api/albums/show"

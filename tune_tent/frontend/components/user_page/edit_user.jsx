@@ -97,25 +97,25 @@ class EditForm extends React.Component {
                 </label>
                 <label>
                   Facebook link
-                  <input type="text"
+                  <input type="url"
                         value={this.state.fb_link}
                         onChange={this.update('fb_link')} />
                 </label>
                 <label>
                   Twitter link
-                  <input type="text"
+                  <input type="url"
                         value={this.state.twitter_link}
                         onChange={this.update('twitter_link')} />
                 </label>
                 <label>
                   Soundcloud link
-                  <input type="text"
+                  <input type="url"
                         value={this.state.soundcloud_link}
                         onChange={this.update('soundcloud_link')} />
                 </label>
                 <label>
                   Web link
-                  <input type="text"
+                  <input type="url"
                         value={this.state.web_link}
                         onChange={this.update('web_link')} />
                 </label>
@@ -123,6 +123,7 @@ class EditForm extends React.Component {
               </div>
             <div className="upload-cont">
               <img className="upload-display" src={this.state.imageUrl} />
+              <i id="upload-icon" className="fa fa-camera-retro fa-3x" aria-hidden="true"></i>
             </div>
           </form>
 

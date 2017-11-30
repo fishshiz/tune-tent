@@ -2,10 +2,10 @@
 
 User.delete_all
 
-User.create!(
+edan = User.create!(
   username: 'Edan Lewis',
   password: 'winslow',
-  img_url: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/users/images/000/000/001/original/15327809_1460202317342934_2101598170_n.jpg',
+  image: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/users/images/000/000/001/original/15327809_1460202317342934_2101598170_n.jpg',
   bio: "Hi, my name is Edan. I am from Earth and I love rabbits. This site sure is a doozy isn't it?",
   genre: 'Folk-Rock',
   fb_link: 'https://www.facebook.com/edan.lewis.9',
@@ -17,11 +17,70 @@ User.create!(
 User.create!(
   username: 'demo',
   password: 'password',
-  img_url: '',
+  image: '',
   bio: 'Hi, this is a demo.',
   genre: 'Folk-Rock',
   fb_link: 'http//facebook.com',
   soundcloud_link: 'http//soundcloud.com',
   twitter_link: 'http//twitter.com',
   web_link: 'http//edanlewis.com'
+)
+
+
+Album.delete_all
+
+fourofour = Album.create!(
+  title: 'The 404 Sessions',
+  image: File.new('../photos/album-photos/404-sessions.jpeg'),
+  user_id: edan.id
+)
+
+Track.delete_all
+
+Track.create!(
+  title: 'Suits and Slippers',
+  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/users/audio/01-Suits-and-Slippers.mp3',
+  album_id: fourofour.id
+)
+
+Track.create!(
+  title: 'Interlude!',
+  audio: File.new('../audio/02-Interlude.mp3'),
+  album_id: fourofour.id
+)
+
+Track.create!(
+  title: 'Foreign Tongue',
+  audio: File.new('../audio/03-Foreign-Tongue.mp3'),
+  album_id: fourofour.id
+)
+
+Track.create!(
+  title: '404',
+  audio: File.new('../audio/04-404.mp3'),
+  album_id: fourofour.id
+)
+
+Track.create!(
+  title: 'Onsen',
+  audio: File.new('../audio/05-Onsen.mp3'),
+  album_id: fourofour.id
+)
+
+Track.create!(
+  title: 'Shinjuku Station',
+  audio: File.new('../audio/06-Shinjuku-Station.mp3'),
+  album_id: fourofour.id
+)
+
+Track.create!(
+  title: 'Sing-a-pore',
+  audio: File.new('../audio/07-Sing-a-pore.mp3'),
+  album_id: fourofour.id
+)
+
+Track.create!(
+  title: 'Karaoke, the musical',
+  audio: File.new('../audio/08-Karaoke-the-musical.mp3'),
+  album_id: fourofour.id
 )

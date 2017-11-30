@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Redirect, withRouter } from 'react-router-dom';
-import TrackItem from './upload_track';
 
 class UploadForm extends React.Component {
   constructor(props) {
@@ -19,6 +18,7 @@ class UploadForm extends React.Component {
     this.removeTrack = this.removeTrack.bind(this);
     this.clearTracks = this.clearTracks.bind(this);
     this.updateTrackTitle = this.updateTrackTitle.bind(this);
+    this.updateAudioFile = this.updateAudioFile.bind(this);
   }
 
 
@@ -29,18 +29,21 @@ class UploadForm extends React.Component {
   }
 
   updateTrackTitle(idx) {
+
     return (e) => {
       const newTracks = this.state.tracks.map((track, tidx) => {
         if (idx!== tidx) return track;
         return {title: e.target.value};
       });
-      this.setState({tracks: newTracks});
+      this.setState({tracks: newTracks, audio: '', trackNum: this.state.trackCount});
     };
   }
 
   updateFile(e) {
+    console.log('pic');
     const reader = new FileReader();
     const file = e.currentTarget.files[0];
+    console.log(reader.onloadend);
     reader.onloadend = () => {
       this.setState({ album_img_url: reader.result});
     };
@@ -48,6 +51,23 @@ class UploadForm extends React.Component {
       reader.readAsDataURL(file);
     }
   }
+
+  updateAudioFile(e, idx) {
+    const reader = new FileReader();
+    const file = e.currentTarget.files[0];
+    // return (e) => {
+    //   console.log('test2');
+    console.log(reader.onloadstart);
+    debugger;
+      reader.onloadstart = () => {
+        console.log('inside!');
+        this.state.tracks[idx].setState({ audio: reader.result, audioFile: file});
+      };
+      if(file) {
+        reader.readAsDataURL(file);
+      }
+    }
+
 
   clearTracks(e) {
     e.preventDefault();
@@ -92,11 +112,11 @@ class UploadForm extends React.Component {
                 placeholder="Album title"
                 value={this.state.title}
                 onChange={this.update('title')} />
-            
+
 
             <div className="photo-cont">
-              <img src={this.state.album_img_url} />
-              <i className="fa fa-picture-o fa-4x" aria-hidden="true">
+              <img className="album-upload-photo" src={this.state.album_img_url} />
+              <i className="fa fa-picture-o fa-4x" id="upload-icon" aria-hidden="true">
                 <input
                   type="file"
                   className="file-btn"
@@ -121,7 +141,7 @@ class UploadForm extends React.Component {
                 <i className="fa fa-cloud-upload fa-2x" aria-hidden="true">
                   <input
                     type="file"
-                    onChange={this.updateFile}
+                    onChange={(e) => this.updateAudioFile(e, idx)}
                     className="file-btn"
                     />
                 </i>
