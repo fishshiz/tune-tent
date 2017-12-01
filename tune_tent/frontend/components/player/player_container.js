@@ -10,8 +10,11 @@ class Player extends React.Component {
       playStatus: Sound.status.STOPPED,
       elapsed: '00:00',
       total: '00:00',
-      position: 0
+      position: 0,
+      playFromPosition: 0
     };
+    this.handleSongPlaying = this.handleSongPlaying.bind(this);
+    this.handleSongFinished = this.handleSongFinished.bind(this);
   }
 
 
@@ -21,14 +24,18 @@ class Player extends React.Component {
     position: audio.position / audio.duration });
   }
 
+  handleSongFinished() {
+    
+  }
+
   render() {
     return (
       <div>
       <Sound url={this.state.track.audio}
       playStatus={this.state.playStatus}
-      onPlaying={this.handleSongPlaying.bind(this)}
+      onPlaying={this.handleSongPlaying}
       playFromPosition={this.state.playFromPosition}
-      onFinishedPlaying={this.handleSongFinished.bind(this)} />
+      onFinishedPlaying={this.handleSongFinished} />
       </div>
     );
   }

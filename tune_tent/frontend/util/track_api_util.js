@@ -10,6 +10,13 @@ export const createTrack = track => {
   });
 };
 
+export const fetchTrack = id => {
+  $.ajax({
+    url: `api/tracks/${id}`,
+    method: 'GET'
+  });
+};
+
 export const fetchTracks = albumId => {
   $.ajax({
     url: `api/albums/${albumId}/tracks`,

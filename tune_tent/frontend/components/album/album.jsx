@@ -41,7 +41,8 @@ class AlbumPage extends React.Component {
               {Object.values(this.props.album.tracks).map((track, idx) => <TrackIndexItem
                 className="track"
                 track={track}
-                key={idx} />)}
+                key={idx}
+                 />)}
               </ol>
             </div>
 

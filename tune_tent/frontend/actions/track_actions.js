@@ -13,7 +13,7 @@ export const fetchTracks = albumId => dispatch => (
   then(tracks => dispatch(receiveTracks(tracks)))
 );
 
-const receiveTrack = track => ({
+export const receiveTrack = track => ({
   type: RECEIVE_TRACK,
   track
 });
