@@ -17,7 +17,7 @@ export const createAlbum = form => dispatch => (
   then(album => (dispatch(receiveAlbum(album))))
 );
 
-const receiveAlbum = album => ({
+export const receiveAlbum = album => ({
   type: RECEIVE_ALBUM,
   album
 });

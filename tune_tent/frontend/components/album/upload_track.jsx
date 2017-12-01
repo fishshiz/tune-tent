@@ -3,106 +3,105 @@ import React from 'react';
 class UploadTrack extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      tracks: [],
-      trackCount: 0
+      title: '',
+      audio: '',
+      addToggle: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.addTrack = this.addTrack.bind(this);
-    this.removeTrack = this.removeTrack.bind(this);
-    this.clearTracks = this.clearTracks.bind(this);
-    this.updateTrackTitle = this.updateTrackTitle.bind(this);
+    this.update = this.update.bind(this);
     this.updateAudioFile = this.updateAudioFile.bind(this);
   }
 
-  updateTrackTitle(idx) {
-    return (e) => {
-      const newTracks = this.state.tracks.map((track, tidx) => {
-        if (idx!== tidx) return track;
-        return {title: e.target.value};
-      });
-      this.setState({ tracks: newTracks, audioFile: '', trackNum: this.state.trackCount });
+  update(field) {
+    return e => {
+      e.preventDefault();
+      this.setState({ [field]: e.target.value });
     };
   }
 
-  updateAudioFile(e, idx) {
+  updateAudioFile(e) {
     const reader = new FileReader();
     const file = e.currentTarget.files[0];
 
-      this.state.tracks[idx].audioFile = file;
-      this.forceUpdate();
+    reader.onloadend = () => {
+      this.setState({ audio: file });
+    };
       if(file) {
         reader.readAsDataURL(file);
       }
     }
 
-  clearTracks(e) {
-    e.preventDefault();
-    this.setState({ tracks: [], trackCount: 0 });
-  }
+    componentWillReceiveProps(nextProps) {
+      if(this.props.album && this.props.album.tracks.length !== nextProps.album.tracks.length) {
+        this.props.fetchAlbum(this.props.album.id);
+      }
+
+    }
 
   addTrack(e) {
     e.preventDefault();
-    this.setState({
-      trackCount: this.state.trackCount + 1,
-      tracks: this.state.tracks.concat([{title: '', audio: '', trackNum: this.state.trackCount}])
-    });
+    this.setState({ addToggle: true });
   }
 
-  removeTrack(idx) {
+  handleSubmit() {
     return (e) => {
       e.preventDefault();
-      this.setState({
-        trackCount: this.state.trackCount - 1,
-        tracks: this.state.tracks.filter((t, tidx) => idx !== tidx)
-      });
+
+      const form = new FormData();
+      form.append("track[title]", this.state.title);
+
+        form.append("track[album_id]", this.props.album.id);
+
+      if (this.state.audio) {
+        form.append("track[audio]", this.state.audio);
+      }
+      this.props.createTrack(form);
     };
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    console.log(this.state);
-    this.props.createTrack(this.state);
-  }
-
   render() {
+    if (!this.props.album) {
+      return null;
+    }
+    if (this.state.addToggle && this.props.currentUser.id === this.props.album.user_id) {
+      return (
+      <form onSubmit={this.handleSubmit()}>
+      <ul className="track-field-cont">
 
-    //
-    // if (this.props.currentUser.id === this.props.albumId) {
-    //   return (
-    //   <div>
-    //   <ul className="track-field-cont">
-    //   {this.state.tracks.map((track, idx) => (
-    //     <div className="track-field">
-    //       <p>{idx + 1}.</p>
-    //       <input
-    //         type="text"
-    //         placeholder="Track Title"
-    //         value={track.title}
-    //         onChange={this.updateTrackTitle(idx)}
-    //         />
-    //       <button onClick={this.removeTrack(idx)}>Remove Track</button>
-    //       <div className="hide-btn">
-    //       <i className="fa fa-cloud-upload fa-2x" aria-hidden="true">
-    //         <input
-    //           type="file"
-    //           onChange={(e) => this.updateAudioFile(e, idx)}
-    //           className="file-btn"
-    //           />
-    //       </i>
-    //       </div>
-    //     </div>
-    //     ))}
-    //   </ul>
-    //
-    //   <div className="buttonz">
-    //   <button className="base-btn" type="submit" onClick={this.handleSubmit}>Submit</button>
-    //   <button className="base-btn" onClick={this.addTrack}>Add Track</button>
-    //   <button className="base-btn" onClick={this.clearTracks}>Clear Tracks</button>
-    //   </div>
-    //   </div>
-  //   );
-  // }
+        <div className="track-field">
+          <input
+            type="text"
+            placeholder="Track Title"
+            value={this.state.title}
+            onChange={this.update('title')} />
+
+          <div className="hide-btn">
+          <i className="fa fa-cloud-upload fa-2x" aria-hidden="true">
+            <input
+              type="file"
+              onChange={this.updateAudioFile}
+              className="file-btn"
+              />
+          </i>
+          </div>
+          <button className="base-btn" type="submit">Submit</button>
+        </div>
+      </ul>
+
+    </form>
+    );
+  } else if (this.props.currentUser.id === this.props.album.user_id) {
+    return (
+      <div className="buttonz">
+        <button className="base-btn" onClick={this.addTrack}>Add Track</button>
+      </div>
+    );
+  } else {
+    return null;
+  }
 }
 }
 

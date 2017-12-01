@@ -35,52 +35,16 @@ fourofour = Album.create!(
   user_id: edan.id
 )
 
+paintedeye = Album.create!(
+  title: 'Painted Eye',
+  image: File.new('../photos/album-photos/painted eyee.png'),
+  user_id: edan.id
+)
+
 Track.delete_all
 
 Track.create!(
-  title: 'Suits and Slippers',
-  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/users/audio/01-Suits-and-Slippers.mp3',
-  album_id: fourofour.id
-)
-
-Track.create!(
-  title: 'Interlude!',
-  audio: File.new('../audio/02-Interlude.mp3'),
-  album_id: fourofour.id
-)
-
-Track.create!(
-  title: 'Foreign Tongue',
-  audio: File.new('../audio/03-Foreign-Tongue.mp3'),
-  album_id: fourofour.id
-)
-
-Track.create!(
-  title: '404',
-  audio: File.new('../audio/04-404.mp3'),
-  album_id: fourofour.id
-)
-
-Track.create!(
-  title: 'Onsen',
-  audio: File.new('../audio/05-Onsen.mp3'),
-  album_id: fourofour.id
-)
-
-Track.create!(
-  title: 'Shinjuku Station',
-  audio: File.new('../audio/06-Shinjuku-Station.mp3'),
-  album_id: fourofour.id
-)
-
-Track.create!(
-  title: 'Sing-a-pore',
-  audio: File.new('../audio/07-Sing-a-pore.mp3'),
-  album_id: fourofour.id
-)
-
-Track.create!(
-  title: 'Karaoke, the musical',
-  audio: File.new('../audio/08-Karaoke-the-musical.mp3'),
-  album_id: fourofour.id
+  title: 'Scary Sites',
+  audio: File.new('../audio/Tame Impala - Cause Im A Man.mp3'),
+  album_id: paintedeye.id
 )

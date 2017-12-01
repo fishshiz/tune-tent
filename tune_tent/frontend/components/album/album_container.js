@@ -7,11 +7,11 @@ import AlbumPage from './album';
 
 const mapStateToProps = (state, ownProps) => {
   const albumId = parseInt(ownProps.match.params.albumId);
-
   return {
     albumId,
     album: state.entities.albums[albumId],
-    track: state.entities.tracks
+    track: state.entities.tracks,
+    currentUser: state.session.currentUser,
   };
 };
 

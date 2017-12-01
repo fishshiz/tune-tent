@@ -29,20 +29,20 @@ class AlbumPage extends React.Component {
         </div>
       );
     } else {
-      const tracks = this.props.track;
+
+
       return (
         <div className="album-show-cont">
           <div className="album-title-cont">
             <h2>{this.props.album.title}</h2>
 
-
             <div className="track-list">
               <ol>
-              {Object.values(tracks).map((track, idx) => <TrackIndexItem
+              {Object.values(this.props.album.tracks).map((track, idx) => <TrackIndexItem
                 className="track"
                 track={track}
                 key={idx} />)}
-                </ol>
+              </ol>
             </div>
 
           </div>
@@ -59,7 +59,6 @@ class AlbumPage extends React.Component {
 
 
   render() {
-
       return (
         <div>
           {this.renderContent()}

@@ -9,10 +9,10 @@ class Api::TracksController < ApplicationController
     # album_id = params[:album_id]
     # params[:tracks].each do |track|
     #   @track = Track.new(track)
-    #   @track.album_id = album_id
     @track = Track.new(track_params)
+    # @track.album_id = album_id
     if @track.save
-      render json: @track
+      redirect_to api_album_url(params[:track][:album_id]) and return
     else
       render json: @track.errors.full_messages, status: 422
     end

@@ -55,47 +55,47 @@ class UploadForm extends React.Component {
   }
 
 
-    form() {
+  form() {
+    return (
+      <div className="upload-form-cont">
+      <form className="album-form"
+        onSubmit={this.handleSubmit()}>
+          <h2 className="upload-title">Add an album</h2>
+
+
+            <input className="album-title"
+              type="text"
+              placeholder="Album title"
+              value={this.state.title}
+              onChange={this.update('title')} />
+
+
+            <div className="upload-photo-cont">
+            <img className="album-upload-photo" src={this.state.album_img_url} />
+            <i className="fa fa-picture-o fa-4x" id="upload-icon" aria-hidden="true">
+              <input
+                type="file"
+                className="file-btn"
+                onChange={this.updateFile}/>
+            </i>
+          </div>
+
+
+          <div className="buttonz">
+          <button className="base-btn" type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    );
+  }
+
+  render() {
       return (
-        <div className="upload-form-cont">
-        <form className="album-form"
-          onSubmit={this.handleSubmit()}>
-            <h2 className="upload-title">Add an album</h2>
-
-
-              <input className="album-title"
-                type="text"
-                placeholder="Album title"
-                value={this.state.title}
-                onChange={this.update('title')} />
-
-
-              <div className="upload-photo-cont">
-              <img className="album-upload-photo" src={this.state.album_img_url} />
-              <i className="fa fa-picture-o fa-4x" id="upload-icon" aria-hidden="true">
-                <input
-                  type="file"
-                  className="file-btn"
-                  onChange={this.updateFile}/>
-              </i>
-            </div>
-
-
-            <div className="buttonz">
-            <button className="base-btn" type="submit">Submit</button>
-            </div>
-          </form>
+        <div >
+          {this.form()}
         </div>
       );
-    }
-
-    render() {
-        return (
-          <div >
-            {this.form()}
-          </div>
-        );
-    }
+  }
 }
 
 export default UploadForm;

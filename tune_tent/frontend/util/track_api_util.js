@@ -1,9 +1,12 @@
 import merge from 'lodash/merge';
-export const createTracks = tracks => {
-  $.ajax({
-    url: `api/albums/${tracks.album_id}/tracks`,
+export const createTrack = track => {
+  return $.ajax({
+    url: `api/albums/${track.album_id}/tracks`,
     method: 'POST',
-    data: merge({}, tracks)
+    contentType: false,
+    processData: false,
+    dataType: 'json',
+    data: track
   });
 };
 
