@@ -21,7 +21,7 @@
 
 }
 
-.photo-cont {
+.upload-photo-cont {
   padding:5px 10px;
   position:relative;
   color:#fff;
@@ -30,9 +30,9 @@
   float:left;
   cursor:pointer;
   border: 1px solid rgb(189, 66, 148);
-  height: 80%;
-  width: 50%;
-  overflow: hidden;
+  height: 300px;
+  width: 300px;
+  overflow: scroll;
   display: flex;
   justify-content: center;
   align-items: center;

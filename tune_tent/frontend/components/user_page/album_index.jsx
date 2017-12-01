@@ -5,15 +5,8 @@ import AlbumIndexItem from './album_index_item';
 class AlbumIndex extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props.artistId);
     this.props.fetchAlbums(this.props.artistId);
   }
-
-
-  componentDidMount() {
-
-  }
-
 
   componentWillReceiveProps(newProps) {
     if(this.props.artistId !== newProps.artistId) {

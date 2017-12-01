@@ -12,8 +12,8 @@ export const fetchAlbums = artistId => dispatch => (
   then(albums => dispatch(receiveAlbums(albums)))
 );
 
-export const createAlbum = album => dispatch => (
-  AlbumAPIUtil.createAlbum(album).
+export const createAlbum = form => dispatch => (
+  AlbumAPIUtil.createAlbum(form).
   then(album => (dispatch(receiveAlbum(album))))
 );
 

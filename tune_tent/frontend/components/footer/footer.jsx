@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Player from '../player/player';
+
 
 export default () => {
   const display =  (
@@ -7,6 +9,7 @@ export default () => {
       <div className="quote">
         <h1>This is a really cool site. -Edan</h1>
       </div>
+      <Player />
       <div className="footer-links">
         <a href="https://edanlewis.com">My site</a>
         <a href="https://github.com/fishshiz">Github</a>

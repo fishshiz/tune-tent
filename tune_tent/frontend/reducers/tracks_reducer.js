@@ -9,7 +9,7 @@ const tracksReducer = (state = {}, action) => {
       const newTrack = {[action.track.id]: action.track };
       return merge({}, state, newTrack);
     case RECEIVE_ALBUM:
-      return action.album.tracks;
+      return action.album;
     case RECEIVE_TRACKS:
       return action.tracks;
     default:

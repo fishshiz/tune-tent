@@ -4,7 +4,8 @@ import Footer from './footer';
 
 
 const mapStateToProps = state => ({
-  currentUser: state.session.currentUser
+  currentUser: state.session.currentUser,
+  currentTrack: state.entities.tracks[0]
 });
 
 

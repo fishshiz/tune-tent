@@ -11,14 +11,15 @@ import EditButtonContainer from './user_page/edit_button_container';
 import EditUserContainer from './user_page/edit_user_container';
 import FooterContainer from './footer/footer_container';
 import UploadAlbumContainer from './album/upload_album_container';
+import TrackFormContainer from './album/upload_track';
 
 
+// <Route path="/albums/:albumId" component={TrackFormContainer} />
 const App = () => (
   <div>
     <NavBarContainer />
     <FooterContainer />
     <Route path="/artists/:artistId" component={EditButtonContainer} />
-
     <Switch>
       <AuthRoute path="/signup" component={SessionFormContainer} />
       <AuthRoute path="/login" component={SessionFormContainer} />
