@@ -1,0 +1,9 @@
+development:
+  s3_bucket: "tune-tent-dev"
+
+production:
+  s3_bucket: "tune-tent-pro"
+
+s3_region:  "us-west-1"
+s3_access_key_id: "AKIAIBI7RM7VS3OLEY6A"
+s3_secret_access_key: "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"

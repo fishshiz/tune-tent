@@ -1,9 +1,0 @@
-json.id user.id
-json.username user.username
-json.bio user.bio
-json.genre user.genre
-json.fb_link user.fb_link
-json.twitter_link user.twitter_link
-json.soundcloud_link user.soundcloud_link
-json.web_link user.web_link
-json.image_url asset_path(user.image.url)
