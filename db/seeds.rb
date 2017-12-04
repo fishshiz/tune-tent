@@ -187,7 +187,7 @@ a8 = Album.create!(
 a9 = Album.create!(
   title: 'Life in the Sun',
   image: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/albums/images/000/000/130/original/image.jpg',
-  user_id: demo.id
+  user_id: b.id
 )
 
 a10 = Album.create!(
@@ -223,7 +223,7 @@ a14 = Album.create!(
 a16 = Album.create!(
   title: 'Lovely Sounds',
   image: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/albums/images/000/000/136/original/static1.squarespace.jpg',
-  user_id: c.id
+  user_id: demo.id
 )
 
 Track.delete_all
