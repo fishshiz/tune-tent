@@ -14,7 +14,7 @@ edan = User.create!(
   web_link: 'https://edanlewis.com'
 )
 
-User.create!(
+demo = User.create!(
   username: 'demo',
   password: 'password',
   image: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/users/images/000/000/120/original/man-person-wall-music.jpg',
@@ -181,7 +181,7 @@ a7 = Album.create!(
 a8 = Album.create!(
   title: 'SeaLion',
   image: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/albums/images/000/000/129/original/etoile-yougoslavie.jpg',
-  user_id: a.id
+  user_id: demo.id
 )
 
 a9 = Album.create!(
@@ -217,7 +217,7 @@ a13 = Album.create!(
 a14 = Album.create!(
   title: 'Baseball on the Mind',
   image: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/albums/images/000/000/135/original/slack-imgs-7-480x480.jpg',
-  user_id: g.id
+  user_id: demo.id
 )
 
 a16 = Album.create!(
@@ -238,24 +238,6 @@ Track.create!(
   title: 'Coming Down',
   audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/003/original/Bon_Iver_-_Coming_Down_(Anais_Mitchell_Cover).mp3',
   album_id: paintedeye.id
-)
-
-Track.create!(
-  title: 'Fater Lee',
-  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/030/original/Black_Ant_-_01_-_Fater_Lee.mp3',
-  album_id: paintedeye.id
-)
-
-Track.create!(
-  title: 'OhK',
-  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/031/original/Black_Ant_-_02_-_Oh_K.mp3',
-  album_id: a1.id
-)
-
-Track.create!(
-  title: 'Black Ant',
-  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/032/original/Black_Ant_-_03_-_8bit2_3.mp3',
-  album_id: a2.id
 )
 
 Track.create!(
