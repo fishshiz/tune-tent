@@ -187,7 +187,7 @@ a8 = Album.create!(
 a9 = Album.create!(
   title: 'Life in the Sun',
   image: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/albums/images/000/000/130/original/image.jpg',
-  user_id: b.id
+  user_id: demo.id
 )
 
 a10 = Album.create!(
@@ -242,198 +242,198 @@ Track.create!(
 
 Track.create!(
   title: 'Black Ant',
-  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/033/original/Black_Ant_-_04_-_Black_Ant.mp3',
+  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/003/original/Bon_Iver_-_Coming_Down_(Anais_Mitchell_Cover).mp3',
   album_id: a3.id
 )
 
 Track.create!(
   title: 'Self Explanatory',
-  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/034/original/Black_Ant_-_05_-_Self_Explainitory.mp3',
+  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/003/original/Bon_Iver_-_Coming_Down_(Anais_Mitchell_Cover).mp3',
   album_id: a4.id
 )
 
 Track.create!(
   title: 'Facemelter',
-  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/035/original/Black_Ant_-_06_-_fACEMELTERmp3.mp3',
+  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/003/original/Bon_Iver_-_Coming_Down_(Anais_Mitchell_Cover).mp3',
   album_id: a5.id
 )
 
 Track.create!(
   title: 'Boomerang',
-  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/036/original/Black_Ant_-_07_-_Boomerang.mp3',
+  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/003/original/Bon_Iver_-_Coming_Down_(Anais_Mitchell_Cover).mp3',
   album_id: a5.id
 )
 
 Track.create!(
   title: 'Vendette',
-  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/037/original/Black_Ant_-_08_-_Michael_Vendette.mp3',
+  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/003/original/Bon_Iver_-_Coming_Down_(Anais_Mitchell_Cover).mp3',
   album_id: a6.id
 )
 
 Track.create!(
   title: 'Christmas',
-  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/038/original/Black_Ant_-_09_-_Christmas_Eve_2009.mp3',
+  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/003/original/Bon_Iver_-_Coming_Down_(Anais_Mitchell_Cover).mp3',
   album_id: a7.id
 )
 
 Track.create!(
   title: 'Piece',
-  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/039/original/Black_Ant_-_10_-_5_Piece.mp3',
+  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/003/original/Bon_Iver_-_Coming_Down_(Anais_Mitchell_Cover).mp3',
   album_id: a8.id
 )
 
 Track.create!(
   title: 'Government',
-  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/040/original/Black_Ant_-_11_-_government_funded_weed.mp3',
+  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/003/original/Bon_Iver_-_Coming_Down_(Anais_Mitchell_Cover).mp3',
   album_id: a9.id
 )
 
 Track.create!(
   title: '12',
-  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/041/original/Black_Ant_-_12_-_649.mp3',
+  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/003/original/Bon_Iver_-_Coming_Down_(Anais_Mitchell_Cover).mp3',
   album_id: a10.id
 )
 
 Track.create!(
   title: '1982',
-  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/042/original/Black_Ant_-_13_-_1982.mp3',
+  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/003/original/Bon_Iver_-_Coming_Down_(Anais_Mitchell_Cover).mp3',
   album_id: a11.id
 )
 
 Track.create!(
   title: 'Underdog',
-  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/043/original/Black_Ant_-_14_-_Underdog.mp3',
+  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/003/original/Bon_Iver_-_Coming_Down_(Anais_Mitchell_Cover).mp3',
   album_id: a12.id
 )
 
 Track.create!(
   title: 'D8M3',
-  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/044/original/Black_Ant_-_15_-_D8M3.mp3',
+  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/003/original/Bon_Iver_-_Coming_Down_(Anais_Mitchell_Cover).mp3',
   album_id: a13.id
 )
 
 Track.create!(
   title: 'Night Owl',
-  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/045/original/Broke_For_Free_-_01_-_Night_Owl.mp3',
+  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/003/original/Bon_Iver_-_Coming_Down_(Anais_Mitchell_Cover).mp3',
   album_id: a14.id
 )
 
 Track.create!(
   title: 'My Always Mood',
-  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/048/original/Black_Ant_-_01_-_Fater_Lee.mp3',
+  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/003/original/Bon_Iver_-_Coming_Down_(Anais_Mitchell_Cover).mp3',
   album_id: a14.id
 )
 
 Track.create!(
   title: 'Day Bird',
-  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/069/original/Jason_Shaw_-_12_MORNINGS.mp3',
+  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/003/original/Bon_Iver_-_Coming_Down_(Anais_Mitchell_Cover).mp3',
   album_id: a16.id
 )
 
 Track.create!(
   title: 'My Luck',
-  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/068/original/Broke_For_Free_-_06_-_Only_Instrumental.mp3',
+  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/003/original/Bon_Iver_-_Coming_Down_(Anais_Mitchell_Cover).mp3',
   album_id: a1.id
 )
 
 Track.create!(
   title: 'Mells Parade',
-  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/067/original/Broke_For_Free_-_05_-_Mells_Parade.mp3',
+  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/003/original/Bon_Iver_-_Coming_Down_(Anais_Mitchell_Cover).mp3',
   album_id: a2.id
 )
 
 Track.create!(
   title: 'Only Instrumental',
-  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/066/original/Broke_For_Free_-_04_-_My_Luck.mp3',
+  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/003/original/Bon_Iver_-_Coming_Down_(Anais_Mitchell_Cover).mp3',
   album_id: a3.id
 )
 
 Track.create!(
   title: 'Mornings',
-  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/065/original/Broke_For_Free_-_03_-_Day_Bird.mp3',
+  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/003/original/Bon_Iver_-_Coming_Down_(Anais_Mitchell_Cover).mp3',
   album_id: a4.id
 )
 
 Track.create!(
   title: 'Acoustic Blues',
-  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/064/original/Broke_For_Free_-_02_-_My_Always_Mood.mp3',
+  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/003/original/Bon_Iver_-_Coming_Down_(Anais_Mitchell_Cover).mp3',
   album_id: a5.id
 )
 
 Track.create!(
   title: 'Acoustic Meditation',
-  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/063/original/Broke_For_Free_-_01_-_Night_Owl.mp3',
+  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/003/original/Bon_Iver_-_Coming_Down_(Anais_Mitchell_Cover).mp3',
   album_id: a6.id
 )
 
 Track.create!(
   title: 'Autumn Sunset',
-  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/062/original/Black_Ant_-_15_-_D8M3.mp3',
+  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/003/original/Bon_Iver_-_Coming_Down_(Anais_Mitchell_Cover).mp3',
   album_id: a7.id
 )
 
 Track.create!(
   title: 'Back to the Woods',
-  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/061/original/Black_Ant_-_14_-_Underdog.mp3',
+  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/003/original/Bon_Iver_-_Coming_Down_(Anais_Mitchell_Cover).mp3',
   album_id: a8.id
 )
 
 Track.create!(
   title: 'Bird in Hand',
-  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/060/original/Black_Ant_-_13_-_1982.mp3',
+  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/003/original/Bon_Iver_-_Coming_Down_(Anais_Mitchell_Cover).mp3',
   album_id: a9.id
 )
 
 Track.create!(
   title: "Chasin' it",
-  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/059/original/Black_Ant_-_12_-_649.mp3',
+  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/003/original/Bon_Iver_-_Coming_Down_(Anais_Mitchell_Cover).mp3',
   album_id: a10.id
 )
 
 Track.create!(
   title: 'Cry in my Beer',
-  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/057/original/Black_Ant_-_10_-_5_Piece.mp3',
+  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/003/original/Bon_Iver_-_Coming_Down_(Anais_Mitchell_Cover).mp3',
   album_id: a11.id
 )
 
 Track.create!(
   title: 'Dobro Funk',
-  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/056/original/Black_Ant_-_09_-_Christmas_Eve_2009.mp3',
+  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/003/original/Bon_Iver_-_Coming_Down_(Anais_Mitchell_Cover).mp3',
   album_id: a12.id
 )
 
 Track.create!(
   title: 'Funky Jam',
-  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/055/original/Black_Ant_-_08_-_Michael_Vendette.mp3',
+  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/003/original/Bon_Iver_-_Coming_Down_(Anais_Mitchell_Cover).mp3',
   album_id: a13.id
 )
 
 Track.create!(
   title: 'Good Friend',
-  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/054/original/Black_Ant_-_07_-_Boomerang.mp3',
+  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/003/original/Bon_Iver_-_Coming_Down_(Anais_Mitchell_Cover).mp3',
   album_id: a14.id
 )
 
 Track.create!(
   title: 'Green Leaves',
-  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/053/original/Black_Ant_-_06_-_fACEMELTERmp3.mp3',
+  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/003/original/Bon_Iver_-_Coming_Down_(Anais_Mitchell_Cover).mp3',
   album_id: a13.id
 )
 
 Track.create!(
   title: 'HoeDown',
-  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/053/original/Black_Ant_-_06_-_fACEMELTERmp3.mp3',
+  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/003/original/Bon_Iver_-_Coming_Down_(Anais_Mitchell_Cover).mp3',
   album_id: a16.id
 )
 
 Track.create!(
   title: 'In the Field',
-  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/052/original/Black_Ant_-_05_-_Self_Explainitory.mp3',
+  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/003/original/Bon_Iver_-_Coming_Down_(Anais_Mitchell_Cover).mp3',
   album_id: a1.id
 )
 
 Track.create!(
   title: "Jenny's Theme",
-  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/056/original/Black_Ant_-_09_-_Christmas_Eve_2009.mp3',
+  audio: 'https://s3-us-west-1.amazonaws.com/tune-tent-dev/tracks/audios/000/000/003/original/Bon_Iver_-_Coming_Down_(Anais_Mitchell_Cover).mp3',
   album_id: a2.id
 )
