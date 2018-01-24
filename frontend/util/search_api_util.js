@@ -1,7 +1,7 @@
-export const searchMusicDatabase = query => {
-  return $.ajax({
+export const searchDB = (query) => (
+  $.ajax({
     method: 'GET',
-    url: 'api/music_search',
+    url: 'api/search',
     data: { search: { query }}
-  });
-};
+  })
+);

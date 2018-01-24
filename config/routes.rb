@@ -7,9 +7,8 @@ Rails.application.routes.draw do
       resources :tracks, only: [:index, :create]
     end
     resource :session, only: [:create, :destroy, :show]
-    resources :music_searches, only: [:index] do
-      get "songs_by_artist", on: :collection
-      get "songs_by_album", on: :collection
+    resources :search, only: [:index] do
+      get "tracks_by_artist", on: :collection
     end
     resources :upload, only: [:create] do
       post "payload_request", on: :collection
