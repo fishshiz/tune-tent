@@ -48,3 +48,89 @@ header {
 .search input:focus {
   border: 3px solid rgb(241, 192, 232);
 }
+
+.dropdownMenu {
+  outline: none;
+  width: 99%;
+  min-height: auto;
+  position: absolute;
+  // top: 46px;
+  // left: 210px;
+  background-color: #333;
+  // z-index: -1;
+}
+
+.search-img {
+  width: 26px;
+  height: 26px;
+  padding: 5px;
+}
+.search-link {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.img-name-search {
+    display: flex;
+    justify-content: space-around;
+}
+
+.search-results-li {
+  display: flex;
+  justify-content: space-around;
+  z-index: 100;
+}
+
+.header__link {
+  padding: 12px 10px 12px;
+  float: left;
+}
+
+.header__userNav {
+  float: left;
+  padding: 0;
+}
+
+.headerSearch__submit {
+  border: 0;
+  padding: 0;
+  background: url(https://a-v2.sndcdn.com/assets/images/header/search-dbfe5cb.svg) 0 0 no-repeat;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+}
+
+
+.headerSearch {
+  padding: 9px 10px 8px;
+  position: relative;
+  appearance: none;
+}
+
+form {
+  display: block;
+  margin-top: 0em;
+}
+
+.headerSearch__input {
+  width: 100%;
+}
+
+.headerSearch__input {
+  height: 28px;
+}
+
+
+.sc-list-nostyle {
+  list-style: none;
+  margin: 0;
+}
+
+
+li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+}

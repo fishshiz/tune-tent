@@ -34,13 +34,24 @@ export default class Search extends React.Component {
 
       render() {
           return (
-            <div className="headerSearch">
-                <div className="search">
-          <i className="fa fa-search" aria-hidden="true"></i>
-          <input type="text" placeholder="search artists"  onChange={this.handleChange} onBlur={this.clearState} />
-        </div>
-                <SearchResults value={this.state.input} results={this.props.searchResults}/>
-            </div>
+            <form className="headerSearch" onSubmit={this.clearState}>
+        <input
+          className="headerSearch__input sc-input g-all-transitions-300"
+          onChange={this.handleChange}
+          type="text"
+          placeholder="Search"
+          value={this.state.input}
+          onBlur={this.clearState}
+        />
+        <button className="headerSearch__submit submit sc-ir" type="submit">
+          Search
+        </button>
+        <SearchResults
+          value={this.state.input}
+          history={this.props.history}
+          results={this.props.searchResults}
+        />
+      </form>
           );
       }
 }
