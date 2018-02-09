@@ -44,7 +44,7 @@ export default class Search extends React.Component {
           onBlur={this.clearState}
         />
         <button className="headerSearch__submit submit sc-ir" type="submit">
-          Search
+          
         </button>
         <SearchResults
           value={this.state.input}
